@@ -60,8 +60,11 @@ $error="Something went wrong. Please try again";
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
-
-
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
     <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -121,6 +124,10 @@ $error="Something went wrong. Please try again";
         clear: both;
         display: table;
     }
+
+    #checkbox {
+        opacity: 80%;
+    }
     </style>
 
 
@@ -133,6 +140,16 @@ $error="Something went wrong. Please try again";
             $(".chrimg").toggle();
         });
     });
+
+    // $(document).ready(function() {
+    //     $("#hide2").click(function(e) {
+    //         e.preventDefault();
+    //         console.log("hello")
+    //         $(".hideimg").hide();
+    //         $("#hide2").hide();
+    //     });
+    // });
+    // 
     </script>
 
 
@@ -202,59 +219,147 @@ foreach($results as $result)
                     <div class="clearfix"></div>
                 </div>
 
-            
 
+                <div class="selectroom_top">
+                    <div class="">
+                        <h2>Carousel Example</h2>
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                            </ol>
 
-            <div class="selectroom_top">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="images/1.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
+                                </div>
 
+                                <div class="item">
+                                    <img src="images/h1.jpg" alt="Chicago" style="width:100%; height: 600px">
+                                </div>
 
+                                <div class="item">
+                                    <img src="images/6.jpg" alt="New york" style="width:100%; height: 600px;">
+                                </div>
+                            </div>
 
-
-                <h2>Event Decor Items and normal items</h2>
-                <div class="selectroom-info animated wow fadeInUp animated" data-wow-duration="1200ms"
-                    data-wow-delay="500ms"
-                    style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
-
-
-                    <br><br><br><br><br>
-
-
-                    <button id="hide" class="chrimg2" style="color: white;background-color:black;" > Chair images </button>
-                    <div  style="display: none;" class="chrimg" >
-
-                        <?php 
-$sql = "SELECT * from chairimgs";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results1 as $result1)
-{	?>
-
-
-                        <!-- <select name="techno[]" id="">
-
-        <option value="<?php echo htmlentities($result1->images);?>">
-            <?php echo htmlentities($result1->images);?>
-        </option>
-        </select> -->
-
-                        <img style="width: 300px; "
-                            src="admin/pacakgeimages/<?php echo htmlentities($result1->images);?>" class="img_item"
-                            alt="">
-                        <input type="checkbox" name="techno[]" value="<?php echo htmlentities($result1->images);?>">
-
-                        <?php
-}}?>
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
+                </div>
 
-<br>
 
-                    <select name="techno[]" id="">
+
+
+                <div class="selectroom_top">
+
+
+
+
+                    <h2>Event Decor Items and normal items</h2>
+
+
+
+
+                    <!-- <button id="clck"> <img src="images/1.jpg" widht=200 height=100 alt="img"> </button> -->
+
+                    <div class="selectroom-info animated wow fadeInUp animated" data-wow-duration="1200ms"
+                        data-wow-delay="500ms"
+                        style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
+
+
+                        <br><br><br><br><br>
+
+                        <!-- <h1>Selected Normal Chairs</h1>
+                        <img src="images/1.jpg" width="300" alt="img"> -->
+
+
+                        <h1>Selected Normal Chairs</h1>
+
 
                         <?php 
+$sql = "SELECT images from chairimgs where images='191373.jpg' ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+    ?>
+
+                        <div class="">
+                            <?php
+foreach($results1 as $result1)
+{	?>
+
+                            <img style="width: 300px; margin: 0px 20px 20px 20px; "
+                                src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>" class="img_item"
+                                alt="">
+                            <input type="checkbox" id="checkbox" checked
+                                style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
+                                name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+
+
+                            <?php
+}}?>
+
+
+                            <button id="hide"
+                                style="color: white;background-color:black; width:100%; height:50px;">change
+                                Chair
+                                images </button>
+
+
+                            <div style="display: none;" class="chrimg">
+                                <?php 
+$sql = "SELECT images from chairimgs ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+    ?>
+
+                                <?php
+foreach($results1 as $result1)
+{	?>
+
+                                <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
+                                    src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>"
+                                    class="img_item" alt="">
+                                <input type="checkbox" id="checkbox"
+                                    style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
+                                    name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+
+
+                                <?php
+}}?>
+
+
+
+
+
+                            </div>
+
+
+
+                            <br>
+
+                            <!-- <select name="techno[]" id="">
+
+                            <?php 
 $sql = "SELECT * from chairimgs";
 $query = $dbh->prepare($sql);
 $query->execute();
@@ -267,102 +372,99 @@ foreach($results1 as $result1)
 
 
 
-                        <option value="<?php echo htmlentities($result1->images);?>">
-                            <?php echo htmlentities($result1->images);?>
-                        </option>
+                            <option value="<?php echo htmlentities($result1->images);?>">
+                                <?php echo htmlentities($result1->images);?>
+                            </option>
 
-                        <!-- <img style="width: 300px; "
-            src="admin/pacakgeimages/<?php echo htmlentities($result1->images);?>" class="img_item"
-            alt=""> -->
-                        <!-- <a name="techno[]" value="<?php echo htmlentities($result1->images);?>"> -->
-                        <!-- package-details.php?pkgid=<?php echo htmlentities($result->PackageId);?>,img=<?php echo htmlentities($result1->images);?> -->
-                        <!-- <img style="width: 300px; "
-            src="admin/pacakgeimages/<?php echo htmlentities($result1->images);?>" class="img_item"
-            alt="">
-    </a> -->
-
-                        <?php
+                            <?php
 }}?>
-                    </select>
+                        </select> -->
 
 
-                    <ul>
+                            <ul>
 
-                        <li class="spe">
-                            <label class="inputLabel">Comment</label>
-                            <!-- <input class="special" type="text" name="comment" required=""> -->
-                            <table border="1">
-                                <tr>
-                                    <td colspan="2">Event Items:</td>
-                                </tr>
-                                <tr>
-                                    <td>PHP</td>
-                                    <td><input type="checkbox" checked name="techno[]" value="PHP"></td>
-                                </tr>
-                                <tr>
-                                    <td>.Net</td>
-                                    <td><input type="checkbox" checked name="techno[]" value=".Net"></td>
-                                </tr>
-                                <tr>
-                                    <td>Java</td>
-                                    <td><input type="checkbox" checked name="techno[]" value="Java"></td>
-                                </tr>
-                                <tr>
-                                    <td>Javascript</td>
-                                    <td><input type="checkbox" checked name="techno[]" value="javascript"></td>
-                                </tr>
-                            </table>
-                        </li>
+                                <li class="spe">
+                                    <!-- <input class="special" type="text" name="comment" required=""> -->
 
 
-                        <?php if($_SESSION['login'])
+
+                                    <table class="table table-dark">
+                                        <thead class="">
+                                            <tr>
+                                                <td colspan="2">Event Items:</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>PHP</td>
+                                                <td><input type="checkbox" checked name="techno[]" value="PHP"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>.Net</td>
+                                                <td><input type="checkbox" checked name="techno[]" value=".Net"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Java</td>
+                                                <td><input type="checkbox" checked name="techno[]" value="Java"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Javascript</td>
+                                                <td><input type="checkbox" checked name="techno[]" value="javascript">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+
+
+                                <?php if($_SESSION['login'])
 {?>
-                        <li class="spe" align="center">
-                            <button type="submit" name="submit2" class="btn-primary btn">Add to Cart</button>
-                        </li>
-                        <?php } else {?>
-                        <li class="sigi" align="center" style="margin-top: 1%">
-                            <a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn">
-                                Book</a>
-                        </li>
-                        <?php } ?>
+                                <li class="spe" align="center">
+                                    <button type="submit" name="submit2" class="btn-primary btn">Add to Cart</button>
+                                </li>
+                                <?php } else {?>
+                                <li class="sigi" align="center" style="margin-top: 1%">
+                                    <a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn">
+                                        Book</a>
+                                </li>
+                                <?php } ?>
 
 
 
 
 
 
-                        <?php if($result->PackageId == 1)
+                                <?php if($result->PackageId == 1)
 {?>
-                        <!-- <li class="spe" align="center">
+                                <!-- <li class="spe" align="center">
             <button type="submit" name="submit2" class="btn-primary btn">Manali trip</button>
         </li> -->
-                        <?php } else if($result->PackageId == 4) {?>
-                        <!-- <li class="sigi" align="center" style="margin-top: 1%">
+                                <?php } else if($result->PackageId == 4) {?>
+                                <!-- <li class="sigi" align="center" style="margin-top: 1%">
             <a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn">
                 kerla trip</a>
         </li> -->
-                        <?php } else{?>
-                        <!-- <li class="sigi" align="center" style="margin-top: 1%">
+                                <?php } else{?>
+                                <!-- <li class="sigi" align="center" style="margin-top: 1%">
             <a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn">
                 Coorg trip</a>
         </li> -->
-                        <?php }  ?>
+                                <?php }  ?>
 
 
 
 
 
 
-                        <div class="clearfix"></div>
-                    </ul>
+                                <div class="clearfix"></div>
+                            </ul>
 
-                </div>
+                        </div>
 
-            </div>
+                    </div>
 
 
-            <?php }} ?>
+                    <?php }} ?>
 
             </form>
 
