@@ -289,7 +289,8 @@ foreach($results as $result)
 
 
                         <?php 
-$sql = "SELECT images from chairimgs where images='191373.jpg' ";
+$pid=intval($_GET['pkgid']);
+$sql = "SELECT ChairImage from tbltourpackages where PackageId=$pid";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results1=$query->fetchAll(PDO::FETCH_OBJ);
@@ -304,11 +305,11 @@ foreach($results1 as $result1)
 {	?>
 
                             <img style="width: 300px; margin: 0px 20px 20px 20px; "
-                                src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>" class="img_item"
+                                src="admin/pacakgeimages/<?php echo htmlentities($result1->ChairImage );?>" class="img_item"
                                 alt="">
                             <input type="checkbox" id="checkbox" checked
                                 style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
-                                name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+                                name="techno[]" value="<?php echo htmlentities($result1->ChairImage);?>">
 
 
                             <?php

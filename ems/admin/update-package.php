@@ -17,6 +17,7 @@ $pprice=$_POST['packageprice'];
 $pfeatures=$_POST['packagefeatures'];
 $pdetails=$_POST['packagedetails'];	
 $pimage=$_FILES["packageimage"]["name"];
+$cimage=$_FILES["chairimage"]["name"];
 $sql="update TblTourPackages set PackageName=:pname,PackageType=:ptype,PackageLocation=:plocation,PackagePrice=:pprice,PackageFetures=:pfeatures,PackageDetails=:pdetails where PackageId=:pid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':pname',$pname,PDO::PARAM_STR);
@@ -180,6 +181,15 @@ foreach($results as $result)
                                     <label for="focusedinput" class="col-sm-2 control-label">Package Image</label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->PackageImage);?>"
+                                            width="200">&nbsp;&nbsp;&nbsp;<a
+                                            href="change-image.php?imgid=<?php echo htmlentities($result->PackageId);?>">Change
+                                            Image</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">chair Image</label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->ChairImage);?>"
                                             width="200">&nbsp;&nbsp;&nbsp;<a
                                             href="change-image.php?imgid=<?php echo htmlentities($result->PackageId);?>">Change
                                             Image</a>
