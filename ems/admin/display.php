@@ -186,14 +186,14 @@ foreach($results as $result)
                         while($row = mysqli_fetch_assoc($result2)){
                             $mark = explode(",", $row['Comment']);
                             ?>
-                        <img src="pacakgeimages/<?php echo htmlentities($mark[0]);?>"
-                            class="img-responsive" alt="image" height="300px" width="500px"> <br>
+                         <br>
                     <?php
                                 echo $mark[0]; ?><br><br><?php
                                 echo $mark[1]; ?><br><br><?php
                                 echo $mark[2]; ?><br><br><?php
-                                echo $mark[3]; ?><br><br><?php
-                                echo $mark[4]; ?><br><br><?php
+                                echo $mark[3]; ?><br><br>
+                                <img src="pacakgeimages/<?php echo htmlentities($mark[4]);?>"
+                            class="img-responsive" alt="" height="300px" width="500px"><?php
                         }
                     }
                     ?>

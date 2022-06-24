@@ -124,7 +124,7 @@ $query->execute();
             <div class="container">
                 <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
                     style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Cart</h3>
-                    
+
                 <form name="chngpwd" method="post" onSubmit="return valid();">
                     <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
                     </div><?php } 
@@ -163,7 +163,10 @@ foreach($results as $result)
                             </td>
                             <td><?php echo htmlentities($result->fromdate);?></td>
                             <td><?php echo htmlentities($result->todate);?></td>
-                            <td><?php echo htmlentities($result->comment);?></td>
+                            <td>
+                                <!-- <?php echo htmlentities($result->comment);?> -->
+                                <a href="display.php?cid=<?php echo htmlentities($result->bookid); ?>">view your selected item</a>
+                            </td>
                             <td>
                                 <!-- <input type="button" value="delete" name="delete" > -->
                                 <a href="cart.php?bkid2=<?php echo htmlentities($result->bookid);?>"
