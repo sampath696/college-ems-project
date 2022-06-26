@@ -71,7 +71,7 @@ $error="You can't cancel booking before 24 hours";
 <script src="js/jquery-1.12.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <!--animate-->
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<!-- <link href="css/animate.css" rel="stylesheet" type="text/css" media="all"> -->
 <script src="js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
@@ -119,8 +119,8 @@ $error="You can't cancel booking before 24 hours";
 <th>#</th>
 <th>Booking Id</th>
 <th>Package Name</th>	
-<th>From</th>
-<th>To</th>
+<th>Date</th>
+<!-- <th>To</th> -->
 <!-- <th>Comment</th> -->
 <th>Status</th>
 <th>Booking Date</th>
@@ -144,7 +144,7 @@ foreach($results as $result)
 <td>#BK<?php echo htmlentities($result->bookid);?></td>
 <td><a href="package-details.php?pkgid=<?php echo htmlentities($result->pkgid);?>"><?php echo htmlentities($result->packagename);?></a></td>
 <td><?php echo htmlentities($result->fromdate);?></td>
-<td><?php echo htmlentities($result->todate);?></td>
+<!-- <td><?php echo htmlentities($result->todate);?></td> -->
 <!-- <td><?php echo htmlentities($result->comment);?></td> -->
 <td><?php if($result->status==0)
 {

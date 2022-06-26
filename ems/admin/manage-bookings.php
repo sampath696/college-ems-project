@@ -146,7 +146,7 @@ $msg="Booking Confirm successfully";
                                     <th>Name</th>
                                     <th>Mobile No.</th>
                                     <th>Email Id</th>
-                                    <th>RegDate </th>
+                                    <th>Package Name </th>
                                     <th>From /To </th>
                                     <th>Comment </th>
                                     <th>Status </th>
@@ -174,7 +174,7 @@ foreach($results as $result)
                                     <td><?php echo htmlentities($result->fdate);?> To
                                         <?php echo htmlentities($result->tdate);?></td>
                                     <td>
-										<a href="display.php?bookid=<?php echo htmlentities($result->bookid);?>">view items</a>
+										<a href="display.php?bookid=<?php echo htmlentities($result->bookid);?>&pkgname=<?php echo htmlentities($result->pckname) ?> ">view items</a>
                                         <!-- <?php echo htmlentities($result->comment);?> -->
                                     </td>
                                     <td><?php if($result->status==0)

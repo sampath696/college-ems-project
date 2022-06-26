@@ -34,7 +34,7 @@ else{
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!--animate-->
-    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <!-- <link href="css/animate.css" rel="stylesheet" type="text/css" media="all"> -->
     <script src="js/wow.min.js"></script>
     <script>
     new WOW().init();
@@ -88,23 +88,35 @@ else{
                     //$sql = "SELECT tblbooking2.BookingId as bookid,tblusers.FullName as fname,tblusers.MobileNumber as mnumber,tblusers.EmailId as email,tbltourpackages.PackageName as pckname,tblbooking2.PackageId as pid,tblbooking2.FromDate as fdate,tblbooking2.ToDate as tdate,tblbooking2.Comment as comment,tblbooking2.status as status,tblbooking2.CancelledBy as cancelby,tblbooking2.UpdationDate as upddate from tblusers join  tblbooking2 on  tblbooking2.UserEmail=tblusers.EmailId join tbltourpackages on tbltourpackages.PackageId=tblbooking2.PackageId";
                     $query2 = "SELECT * from tblbooking where BookingId = $cartid";
                     if($result2 = mysqli_query($conn,$query2)){
+
                         while($row = mysqli_fetch_assoc($result2)){
                             $mark = explode(",", $row['Comment']);
+                            foreach($mark as $mk){
+                                ?> <br> <img src="admin/pacakgeimages/<?php echo $mk;?>" width="500" alt=""> <?php
+                            }
                             ?>
-                <br>
                 <?php
-                                echo $mark[0]; ?><br><br><?php
-                                echo $mark[1]; ?><br><br><?php
-                                echo $mark[2]; ?><br><br><?php
-                                echo $mark[3]; ?><br><br>
-                <img src="admin/pacakgeimages/<?php echo htmlentities($mark[4]);?>" class="img-responsive" alt=""
-                    height="300px" width="500px"><?php
                         }
                     }
+
+
+                    $query22 = "SELECT * from tblbooking where BookingId = $cartid";
+                    if($result22 = mysqli_query($conn,$query22)){
+                     
+                        while($row = mysqli_fetch_assoc($result22)){
+                            $mark = explode(",", $row['Comment2']);
+                            foreach($mark as $mk){
+                                ?> <br> <?php echo $mk;
+                            }
+                            ?>
+                <?php
+                        }
+                    }                    
+
                     ?>
 
 
-               
+
 
             </div>
         </div>

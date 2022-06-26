@@ -17,8 +17,9 @@ $email=$_SESSION['login'];
 $frd=$_GET['frd'];
 $td=$_GET['td'];
 $cmt=$_GET['cmt'];
+$cmt2=$_GET['cmt2'];
 $status=0;
-$sql="INSERT INTO tblbooking2(BookingId,PackageId,UserEmail,FromDate,ToDate,Comment,status) VALUES(:bookid,:pkgid,:email,:frd,:td,:cmt,:status)";
+$sql="INSERT INTO tblbooking2(BookingId,PackageId,UserEmail,FromDate,ToDate,Comment,Comment2,status) VALUES(:bookid,:pkgid,:email,:frd,:td,:cmt,:cmt2,:status)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':bookid',$bookid,PDO::PARAM_STR);
 $query->bindParam(':pkgid',$pkgid,PDO::PARAM_STR);
@@ -26,6 +27,7 @@ $query->bindParam(':email',$email,PDO::PARAM_STR);
 $query->bindParam(':frd',$frd,PDO::PARAM_STR);
 $query->bindParam(':td',$td,PDO::PARAM_STR);
 $query->bindParam(':cmt',$cmt,PDO::PARAM_STR);
+$query->bindParam(':cmt2',$cmt2,PDO::PARAM_STR);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
@@ -80,7 +82,7 @@ $query->execute();
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!--animate-->
-    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <!-- <link href="css/animate.css" rel="stylesheet" type="text/css" media="all"> -->
     <script src="js/wow.min.js"></script>
     <script>
     new WOW().init();
@@ -137,15 +139,14 @@ $query->execute();
                             <th>#</th>
                             <th>Booking Id</th>
                             <th>Package Name</th>
-                            <th>From</th>
-                            <th>To</th>
+                            <th>Date</th>
                             <th>Comment</th>
                             <th>Action</th>
                         </tr>
                         <?php 
 
 $uemail=$_SESSION['login'];
-$sql = "SELECT tblbooking.BookingId as bookid,tblbooking.PackageId as pkgid,tbltourpackages.PackageName as packagename,tblbooking.FromDate as fromdate,tblbooking.ToDate as todate,tblbooking.Comment as comment,tblbooking.status as status,tblbooking.RegDate as regdate,tblbooking.CancelledBy as cancelby,tblbooking.UpdationDate as upddate from tblbooking join tbltourpackages on tbltourpackages.PackageId=tblbooking.PackageId where UserEmail=:uemail";
+$sql = "SELECT tblbooking.BookingId as bookid,tblbooking.PackageId as pkgid,tbltourpackages.PackageName as packagename,tblbooking.FromDate as fromdate,tblbooking.ToDate as todate,tblbooking.Comment as comment,tblbooking.Comment2 as comment2,tblbooking.status as status,tblbooking.RegDate as regdate,tblbooking.CancelledBy as cancelby,tblbooking.UpdationDate as upddate from tblbooking join tbltourpackages on tbltourpackages.PackageId=tblbooking.PackageId where UserEmail=:uemail";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':uemail', $uemail, PDO::PARAM_STR);
 $query->execute();
@@ -162,16 +163,16 @@ foreach($results as $result)
                                     href="package-details.php?pkgid=<?php echo htmlentities($result->pkgid);?>"><?php echo htmlentities($result->packagename);?></a>
                             </td>
                             <td><?php echo htmlentities($result->fromdate);?></td>
-                            <td><?php echo htmlentities($result->todate);?></td>
+                            <!-- <td><?php echo htmlentities($result->todate);?></td> -->
                             <td>
                                 <!-- <?php echo htmlentities($result->comment);?> -->
-                                <a href="display.php?cid=<?php echo htmlentities($result->bookid); ?>">view your selected item</a>
+                                <a href="display.php?cid=<?php echo htmlentities($result->bookid);?>&pkgname=<?php echo htmlentities($result->packagename);?>">view your selected item</a>
                             </td>
                             <td>
                                 <!-- <input type="button" value="delete" name="delete" > -->
                                 <a href="cart.php?bkid2=<?php echo htmlentities($result->bookid);?>"
                                     onclick="return confirm('Do you really want to remove from cart')">Remove</a>/
-                                <a href="cart.php?bkid=<?php echo htmlentities($result->bookid);?>&pkgid=<?php echo htmlentities($result->pkgid) ?>&frd=<?php echo htmlentities($result->fromdate) ?>&td=<?php echo htmlentities($result->todate) ?>&cmt=<?php echo htmlentities($result->comment) ?>"
+                                <a href="cart.php?bkid=<?php echo htmlentities($result->bookid);?>&pkgid=<?php echo htmlentities($result->pkgid) ?>&frd=<?php echo htmlentities($result->fromdate) ?>&td=<?php echo htmlentities($result->todate) ?>&cmt=<?php echo htmlentities($result->comment)?>&cmt2=<?php echo htmlentities($result->comment2) ?>"
                                     onclick="return confirm('Do you really want to book')">request-booking</a>
 
                             </td>

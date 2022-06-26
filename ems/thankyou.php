@@ -20,7 +20,7 @@ include('includes/config.php');
 <script src="js/jquery-1.12.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <!--animate-->
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<!-- <link href="css/animate.css" rel="stylesheet" type="text/css" media="all"> -->
 <script src="js/wow.min.js"></script>
 	<script>
 		 new WOW().init();

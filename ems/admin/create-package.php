@@ -180,27 +180,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">Package Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="packageimage" id="packageimage" required>
+                                        <input type="file" name="packageimage" id="packageimage" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">welcome sign Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="welcomesign" id="welcomesign" required>
+                                        <input type="file" name="welcomesign" id="welcomesign" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">Background Stage
                                         Images</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="backgroundstage" id="backgroundstage" required>
+                                        <input type="file" name="backgroundstage" id="backgroundstage" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">entrance design
                                         Images</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="entrancedesign" id="entrancedesign" required>
+                                        <input type="file" name="entrancedesign" id="entrancedesign" >
                                     </div>
                                 </div>
                                 <div class="form-group">

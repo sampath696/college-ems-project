@@ -37,6 +37,18 @@
                         Pages</span>
                     <div class="clearfix"></div>
                 </a></li>
+            <li><a href="welcomeimages.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Welcome Sign
+                        Images</span>
+                    <div class="clearfix"></div>
+                </a></li>
+            <li><a href="bckstageimage.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Background Stage
+                        Images</span>
+                    <div class="clearfix"></div>
+                </a></li>
+            <li><a href="entranceimages.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Entrance
+                        Images</span>
+                    <div class="clearfix"></div>
+                </a></li>
             <li><a href="chimgs.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>chairimages</span>
                     <div class="clearfix"></div>
                 </a></li>
