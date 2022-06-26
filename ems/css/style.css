@@ -151,8 +151,10 @@ i.fa.fa-lock {
     opacity: 0.5px;
     background-size: cover;
     -webkit-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
+    -o-background-size: cover;.navbar-default {
+        background-color: #111211 !important;
+        border-color: #0ce4d9 !important;
+    }
     -moz-background-size: cover;
     min-height: 430px;
 }
@@ -2258,6 +2260,10 @@ ul.set-1 {
 .navbar-default {
     background-color: #17bfe9 !important;
     border-color: #0ce4d9 !important;
+}
+.navbar-default2 {
+    background-color: #4c5152 !important;
+    border-color: #d1177d !important;
 }
 .navbar {
     min-height: 0px !important;

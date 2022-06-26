@@ -14,12 +14,18 @@ if(isset($_POST['submit']))
 $pimage=$_FILES["packageimage"]["name"];
 $cimage=$_FILES["chairimage"]["name"];
 move_uploaded_file($_FILES["packageimage"]["tmp_name"],"pacakgeimages/".$_FILES["packageimage"]["name"]);
+move_uploaded_file($_FILES["welcomesign"]["tmp_name"],"pacakgeimages/".$_FILES["welcomesign"]["name"]);
+move_uploaded_file($_FILES["backgroundstage"]["tmp_name"],"pacakgeimages/".$_FILES["backgroundstage"]["name"]);
+move_uploaded_file($_FILES["entrancedesign"]["tmp_name"],"pacakgeimages/".$_FILES["entrancedesign"]["name"]);
 move_uploaded_file($_FILES["chairimage"]["tmp_name"],"pacakgeimages/".$_FILES["chairimage"]["name"]);
-$sql="update TblTourPackages set PackageImage=:pimage, ChairImage=:cimage where PackageId=:imgid";
+$sql="update TblTourPackages set PackageImage=:pimage, WelcomeImage=:wimage, BackgroundStageImage=:bimage, EntranceImage=:eimage, ChairImage=:cimage where PackageId=:imgid";
 $query = $dbh->prepare($sql);
 
 $query->bindParam(':imgid',$imgid,PDO::PARAM_STR);
 $query->bindParam(':pimage',$pimage,PDO::PARAM_STR);
+$query->bindParam(':wimage',$wimage,PDO::PARAM_STR);
+$query->bindParam(':bimage',$bimage,PDO::PARAM_STR);
+$query->bindParam(':eimage',$eimage,PDO::PARAM_STR);
 $query->bindParam(':cimage',$cimage,PDO::PARAM_STR);
 $query->execute();
 $msg="Package Created Successfully";
@@ -129,6 +135,48 @@ foreach($results as $result)
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="packageimage" id="packageimage" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label"> Welcome Sign Image </label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->WelcomeImage);?>"
+                                            width="200">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="welcomesign" id="welcomesign" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label"> Background Stage Image </label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->BackgroundStageImage);?>"
+                                            width="200">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="backgroundstage" id="backgroundstage" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label"> Entrance Image </label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->EntranceImage);?>"
+                                            width="200">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="entrancedesign" id="entrancedesign" required>
                                     </div>
                                 </div>
                                 <div class="form-group">

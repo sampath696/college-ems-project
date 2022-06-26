@@ -27,7 +27,8 @@ $rowcnt = $query->rowCount();
             <li class="tol">Welcome :</li>
             <li class="sig"><?php echo htmlentities($_SESSION['login']);?></li>
             <li class="sigi"><a href="logout.php">/ Logout</a></li>
-            <li style="margin-left:30px;" class="prnt"><a href="cart.php">Cart - <strong><?php echo $rowcnt ?></strong> </a></li>
+            <li style="margin-left:30px;" class="prnt"><a href="cart.php">Cart - <strong><?php echo $rowcnt ?></strong>
+                </a></li>
             <!-- <li  ><a href="cart.php">Cart</a></li> -->
         </ul>
         <div class="clearfix"></div>

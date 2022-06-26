@@ -64,6 +64,7 @@ $error="Something went wrong. Please try again";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -128,6 +129,41 @@ $error="Something went wrong. Please try again";
     #checkbox {
         opacity: 80%;
     }
+
+
+
+    .sidenav {
+        width: 80px;
+        position: fixed;
+        z-index: 1;
+        top: 150px;
+        left: 10px;
+        background: #eee;
+        overflow-x: hidden;
+        padding: 8px 0;
+    }
+
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 15px;
+        color: #2196F3;
+        display: block;
+    }
+
+    .sidenav a:hover {
+        color: #064579;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+    }
     </style>
 
 
@@ -140,16 +176,6 @@ $error="Something went wrong. Please try again";
             $(".chrimg").toggle();
         });
     });
-
-    // $(document).ready(function() {
-    //     $("#hide2").click(function(e) {
-    //         e.preventDefault();
-    //         console.log("hello")
-    //         $(".hideimg").hide();
-    //         $("#hide2").hide();
-    //     });
-    // });
-    // 
     </script>
 
 
@@ -158,12 +184,20 @@ $error="Something went wrong. Please try again";
 <body>
     <!-- top-header -->
     <?php include('includes/header.php');?>
+
     <div class="banner-3">
         <div class="container">
             <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
                 style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> ems -Package Details</h1>
         </div>
     </div>
+
+    <div class="sidenav">
+        <a href="#date">select date</a>
+        <a href="#about">view chairs</a>
+        <a href="#decr">view items</a>
+    </div>
+
     <!--- /banner ---->
     <!--- selectroom ---->
     <div class="selectroom">
@@ -171,6 +205,7 @@ $error="Something went wrong. Please try again";
             <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> <a
                     href="cart.php">go to cart</a> </div><?php }?>
+
             <?php 
 $pid=intval($_GET['pkgid']);
 $sql = "SELECT * from tbltourpackages where PackageId=:pid";
@@ -185,7 +220,7 @@ foreach($results as $result)
 {	?>
 
             <form name="book" method="post">
-                <div class="selectroom_top">
+                <div class="selectroom_top" id="date">
                     <div class="col-md-4 selectroom_left wow fadeInLeft animated" data-wow-delay=".5s">
                         <img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>"
                             class="img-responsive" alt="">
@@ -220,46 +255,6 @@ foreach($results as $result)
                 </div>
 
 
-                <div class="selectroom_top">
-                    <div class="">
-                        <h2>Carousel Example</h2>
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                            </ol>
-
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img src="images/1.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
-                                </div>
-
-                                <div class="item">
-                                    <img src="images/h1.jpg" alt="Chicago" style="width:100%; height: 600px">
-                                </div>
-
-                                <div class="item">
-                                    <img src="images/6.jpg" alt="New york" style="width:100%; height: 600px;">
-                                </div>
-                            </div>
-
-                            <!-- Left and right controls -->
-                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
 
 
                 <div class="selectroom_top">
@@ -267,7 +262,7 @@ foreach($results as $result)
 
 
 
-                    <h2>Event Decor Items and normal items</h2>
+                    <h2 id="decr">Event Decor Items and normal items</h2>
 
 
                     <table class="table table-dark">
@@ -318,7 +313,7 @@ foreach($results as $result)
                         <img src="images/1.jpg" width="300" alt="img"> -->
 
 
-                        <h1>Selected Normal Chairs</h1>
+                        <h1 id="about">Selected Normal Chairs</h1>
 
 
                         <?php 
@@ -580,6 +575,7 @@ foreach($results1 as $result1)
 
     });
     </script>
+
 
 
 </body>

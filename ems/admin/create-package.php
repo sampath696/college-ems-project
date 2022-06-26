@@ -16,10 +16,16 @@ $pprice=$_POST['packageprice'];
 $pfeatures=$_POST['packagefeatures'];
 $pdetails=$_POST['packagedetails'];	
 $pimage=$_FILES["packageimage"]["name"];
+$wimage=$_FILES["welcomesign"]["name"];
+$bimage=$_FILES["backgroundstage"]["name"];
+$eimage=$_FILES["entrancedesign"]["name"];
 $cimage=$_FILES["chairimage"]["name"];
 move_uploaded_file($_FILES["packageimage"]["tmp_name"],"pacakgeimages/".$_FILES["packageimage"]["name"]);
+move_uploaded_file($_FILES["welcomesign"]["tmp_name"],"pacakgeimages/".$_FILES["welcomesign"]["name"]);
+move_uploaded_file($_FILES["backgroundstage"]["tmp_name"],"pacakgeimages/".$_FILES["backgroundstage"]["name"]);
+move_uploaded_file($_FILES["entrancedesign"]["tmp_name"],"pacakgeimages/".$_FILES["entrancedesign"]["name"]);
 move_uploaded_file($_FILES["chairimage"]["tmp_name"],"pacakgeimages/".$_FILES["chairimage"]["name"]);
-$sql="INSERT INTO TblTourPackages(PackageName,PackageType,PackageLocation,PackagePrice,PackageFetures,PackageDetails,PackageImage,ChairImage) VALUES(:pname,:ptype,:plocation,:pprice,:pfeatures,:pdetails,:pimage,:cimage)";
+$sql="INSERT INTO TblTourPackages(PackageName,PackageType,PackageLocation,PackagePrice,PackageFetures,PackageDetails,PackageImage,WelcomeImage,BackgroundStageImage,EntranceImage,ChairImage) VALUES(:pname,:ptype,:plocation,:pprice,:pfeatures,:pdetails,:pimage,:wimage,:bimage,:eimage,:cimage)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':pname',$pname,PDO::PARAM_STR);
 $query->bindParam(':ptype',$ptype,PDO::PARAM_STR);
@@ -28,6 +34,9 @@ $query->bindParam(':pprice',$pprice,PDO::PARAM_STR);
 $query->bindParam(':pfeatures',$pfeatures,PDO::PARAM_STR);
 $query->bindParam(':pdetails',$pdetails,PDO::PARAM_STR);
 $query->bindParam(':pimage',$pimage,PDO::PARAM_STR);
+$query->bindParam(':wimage',$wimage,PDO::PARAM_STR);
+$query->bindParam(':bimage',$bimage,PDO::PARAM_STR);
+$query->bindParam(':eimage',$eimage,PDO::PARAM_STR);
 $query->bindParam(':cimage',$cimage,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
@@ -172,6 +181,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <label for="focusedinput" class="col-sm-2 control-label">Package Image</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="packageimage" id="packageimage" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">welcome sign Image</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="welcomesign" id="welcomesign" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">Background Stage
+                                        Images</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="backgroundstage" id="backgroundstage" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">entrance design
+                                        Images</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="entrancedesign" id="entrancedesign" required>
                                     </div>
                                 </div>
                                 <div class="form-group">

@@ -121,7 +121,7 @@ $error="You can't cancel booking before 24 hours";
 <th>Package Name</th>	
 <th>From</th>
 <th>To</th>
-<th>Comment</th>
+<!-- <th>Comment</th> -->
 <th>Status</th>
 <th>Booking Date</th>
 <th>Action</th>
@@ -145,7 +145,7 @@ foreach($results as $result)
 <td><a href="package-details.php?pkgid=<?php echo htmlentities($result->pkgid);?>"><?php echo htmlentities($result->packagename);?></a></td>
 <td><?php echo htmlentities($result->fromdate);?></td>
 <td><?php echo htmlentities($result->todate);?></td>
-<td><?php echo htmlentities($result->comment);?></td>
+<!-- <td><?php echo htmlentities($result->comment);?></td> -->
 <td><?php if($result->status==0)
 {
 echo "Pending";
