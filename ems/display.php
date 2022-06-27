@@ -79,7 +79,7 @@ else{
                 <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
                     style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Items you selected
                 </h3>
-                <a href="cart.php">Back</a>
+                <a href="cart.php" style="" >Back</a>
 
 
                 <?php
@@ -92,7 +92,7 @@ else{
                         while($row = mysqli_fetch_assoc($result2)){
                             $mark = explode(",", $row['Comment']);
                             foreach($mark as $mk){
-                                ?> <br> <img src="admin/pacakgeimages/<?php echo $mk;?>" width="500" alt=""> <?php
+                                ?> <br> <span  > <img src="admin/pacakgeimages/<?php echo $mk;?>"width="400" alt=""></span> <br> <?php
                             }
                             ?>
                 <?php

@@ -20,7 +20,6 @@ $rowcnt = $query->rowCount();
             <li class="hm"><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li class="prnt"><a href="profile.php">My Profile</a></li>
             <li class="prnt"><a href="change-password.php">Change Password</a></li>
-            <li class="prnt"><a href="tour-history.php">My Event History</a></li>
             <li class="prnt"><a href="issuetickets.php">View F.A.Q</a></li>
         </ul>
         <ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s">
@@ -29,6 +28,7 @@ $rowcnt = $query->rowCount();
             <li class="sigi"><a href="logout.php">/ Logout</a></li>
             <li style="margin-left:30px;" class="prnt"><a href="cart.php">Cart - <strong><?php echo $rowcnt ?></strong>
                 </a></li>
+            <li class="sigi"><a href="tour-history.php"> MyBooking</a></li>
             <!-- <li  ><a href="cart.php">Cart</a></li> -->
         </ul>
         <div class="clearfix"></div>
@@ -38,7 +38,7 @@ $rowcnt = $query->rowCount();
     <div class="container">
         <ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
             <li class="hm"><a href="index.php"><i class="fa fa-home"></i></a></li>
-            <li class="hm"><a href="admin/index.php">Admin Login</a></li>
+            <!-- <li class="hm"><a href="admin/index.php">Admin Login</a></li> -->
         </ul>
         <ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s">
             <li class="tol">Toll Number : 123-4568790</li>

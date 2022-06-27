@@ -59,6 +59,7 @@ $query->execute();
 }
 
 
+
 ?>
 
 <!DOCTYPE HTML>
@@ -140,7 +141,7 @@ $query->execute();
                             <th>Booking Id</th>
                             <th>Package Name</th>
                             <th>Date</th>
-                            <th>Comment</th>
+                            <th>View your selection</th>
                             <th>Action</th>
                         </tr>
                         <?php 
@@ -166,7 +167,9 @@ foreach($results as $result)
                             <!-- <td><?php echo htmlentities($result->todate);?></td> -->
                             <td>
                                 <!-- <?php echo htmlentities($result->comment);?> -->
-                                <a href="display.php?cid=<?php echo htmlentities($result->bookid);?>&pkgname=<?php echo htmlentities($result->packagename);?>">view your selected item</a>
+                                <a
+                                    href="display.php?cid=<?php echo htmlentities($result->bookid);?>&pkgname=<?php echo htmlentities($result->packagename);?>">view
+                                    your selected item</a>
                             </td>
                             <td>
                                 <!-- <input type="button" value="delete" name="delete" > -->

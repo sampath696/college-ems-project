@@ -79,7 +79,7 @@ include('includes/config.php');
 
 
     <!--- rupes ---->
-    <div class="container">
+    <!-- <div class="container">
         <div class="rupes">
             <div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s"
                 style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
@@ -119,7 +119,7 @@ include('includes/config.php');
             </div>
 
         </div>
-    </div>
+    </div> -->
     <!--- /rupes ---->
 
 
@@ -175,7 +175,7 @@ foreach($results as $result)
 
 
     <!--- routes ---->
-    <div class="routes">
+    <!-- <div class="routes">
         <div class="container">
             <div class="col-md-4 routes-left wow fadeInRight animated" data-wow-delay=".5s">
                 <div class="rou-left">
@@ -209,7 +209,7 @@ foreach($results as $result)
             </div>
             <div class="clearfix"></div>
         </div>
-    </div>
+    </div> -->
 
     <?php include('includes/footer.php');?>
     <!-- signup -->

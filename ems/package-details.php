@@ -42,6 +42,7 @@ $error="Something went wrong. Please try again";
 }
 
 }
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -312,9 +313,10 @@ foreach($results as $result)
                                 <td><input type="checkbox" checked name="techno2[]" value="PhotoGrapher">
                                 </td>
                             </tr>
+                            <input type="hidden" checked name="techno2[]" value="No of chairs:">
                             <tr>
                                 <td>No Of Chairs</td>
-                                <td><input type="number" checked name="techno2[]" value="10000">
+                                <td><input type="number" checked name="techno2[]" value="0">
                                 </td>
                             </tr>
                         </tbody>

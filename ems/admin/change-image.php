@@ -134,7 +134,7 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="packageimage" id="packageimage" required>
+                                        <input type="file" name="packageimage" id="packageimage" >
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -148,7 +148,7 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="welcomesign" id="welcomesign" required>
+                                        <input type="file" name="welcomesign" id="welcomesign" >
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -162,7 +162,7 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="backgroundstage" id="backgroundstage" required>
+                                        <input type="file" name="backgroundstage" id="backgroundstage" >
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -176,7 +176,7 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="entrancedesign" id="entrancedesign" required>
+                                        <input type="file" name="entrancedesign" id="entrancedesign" >
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -190,7 +190,7 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="chairimage" id="chairimage" required>
+                                        <input type="file" name="chairimage" id="chairimage" >
                                     </div>
                                 </div>
                                 <?php }} ?>
