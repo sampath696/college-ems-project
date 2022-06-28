@@ -26,9 +26,10 @@ $rowcnt = $query->rowCount();
             <li class="tol">Welcome :</li>
             <li class="sig"><?php echo htmlentities($_SESSION['login']);?></li>
             <li class="sigi"><a href="logout.php">/ Logout</a></li>
-            <li style="margin-left:30px;" class="prnt"><a href="cart.php">Cart - <strong><?php echo $rowcnt ?></strong>
-                </a></li>
-            <li class="sigi"><a href="tour-history.php"> MyBooking</a></li>
+            <!-- <li style="margin-left:30px;" class="prnt"><a href="cart.php">Cart - <strong><?php echo $rowcnt ?></strong>
+                </a></li> -->
+                <li class="sigi" style="margin:0px 20px 0px 30px"><a href="cart.php"><i class="fa fa-shopping-cart" style="font-size:18px;"></i>  <strong><?php echo $rowcnt ?></strong></a></li>
+            <li class="sigi"><a href="tour-history.php"> My Bookings</a></li>
             <!-- <li  ><a href="cart.php">Cart</a></li> -->
         </ul>
         <div class="clearfix"></div>
@@ -41,7 +42,7 @@ $rowcnt = $query->rowCount();
             <!-- <li class="hm"><a href="admin/index.php">Admin Login</a></li> -->
         </ul>
         <ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s">
-            <li class="tol">Toll Number : 123-4568790</li>
+            <!-- <li class="tol">Toll Number : 123-4568790</li> -->
             <li class="sig"><a href="#" data-toggle="modal" data-target="#myModal">Sign Up</a></li>
             <li class="sigi"><a href="#" data-toggle="modal" data-target="#myModal4">/ Sign In</a></li>
         </ul>
@@ -54,7 +55,7 @@ $rowcnt = $query->rowCount();
 <div class="header">
     <div class="container">
         <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
-            <a href="index.php">Event <span>Management System</span></a>
+            <a href="index.php">Swagath <span>Events</span></a>
         </div>
 
         <div class="lock fadeInDown animated" data-wow-delay=".5s">

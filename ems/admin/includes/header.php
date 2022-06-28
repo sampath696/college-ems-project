@@ -1,6 +1,6 @@
 <div class="header-main">
     <div class="logo-w3-agile">
-        <h1><a href="dashboard.php">Event Management System</a></h1>
+        <h1><a href="dashboard.php">SWAGATH EVENTS</a></h1>
     </div>
 
 

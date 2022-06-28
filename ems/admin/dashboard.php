@@ -99,7 +99,7 @@ $cnt1=$query1->rowCount();
                                 <i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>
                             </div>
                             <div class="four-text">
-                                <h3>Enquiries</h3>
+                                <h3>External Enquiries</h3>
                                 <?php $sql2 = "SELECT id from tblenquiry";
 $query2= $dbh -> prepare($sql2);
 $query2->execute();
@@ -141,7 +141,7 @@ $cnt3=$query3->rowCount();
                                 <i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>
                             </div>
                             <div class="four-text">
-                                <h3>Issues Riaised</h3>
+                                <h3>FAQ</h3>
                                 <?php $sql5 = "SELECT id from tblissues";
 $query5= $dbh -> prepare($sql5);
 $query5->execute();
