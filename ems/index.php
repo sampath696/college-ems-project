@@ -49,15 +49,15 @@ include('includes/config.php');
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="images/1.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
+                            <img src="images/pk2.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
                         </div>
 
                         <div class="item">
-                            <img src="images/h1.jpg" alt="Chicago" style="width:100%; height: 600px">
+                            <img src="images/pk3.jpg" alt="Chicago" style="width:100%; height: 600px">
                         </div>
 
                         <div class="item">
-                            <img src="images/6.jpg" alt="New york" style="width:100%; height: 600px;">
+                            <img src="images/pk4.jpg" alt="New york" style="width:100%; height: 600px;">
                         </div>
                     </div>
 

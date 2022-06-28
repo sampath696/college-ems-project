@@ -16,6 +16,10 @@
                 <ul id="menu-academico-sub">
                     <li id="menu-academico-avaliacoes"><a href="create-package.php">Create</a></li>
                     <li id="menu-academico-avaliacoes"><a href="manage-packages.php">Manage</a></li>
+                    <li id="menu-academico-avaliacoes"><a href="welcomeimages.php">insert Welcome-sign image</a></li>
+                    <li id="menu-academico-avaliacoes"><a href="bckstageimage.php">insert Background-stage images</a></li>
+                    <li id="menu-academico-avaliacoes"><a href="entranceimages.php">insert Entrance images</a></li>
+                    <li id="menu-academico-avaliacoes"><a href="chimgs.php">insert Chair images</a></li>
                 </ul>
             </li>
             <li id="menu-academico"><a href="manage-users.php"><i class="fa fa-users"
@@ -26,10 +30,10 @@
             <li><a href="manage-bookings.php"><i class="fa fa-list" aria-hidden="true"></i> <span>Manage Booking</span>
                     <div class="clearfix"></div>
                 </a></li>
-            <li><a href="manageissues.php"><i class="fa fa-table"></i> <span>Manage Issues</span>
+            <li><a href="manageissues.php"><i class="fa fa-table"></i> <span>Manage FAQ</span>
                     <div class="clearfix"></div>
                 </a></li>
-            <li><a href="manage-enquires.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Manage
+            <li><a href="manage-enquires.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>External
                         Enquiries</span>
                     <div class="clearfix"></div>
                 </a></li>
@@ -37,23 +41,6 @@
                         Pages</span>
                     <div class="clearfix"></div>
                 </a></li>
-            <li><a href="welcomeimages.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Welcome Sign
-                        Images</span>
-                    <div class="clearfix"></div>
-                </a></li>
-            <li><a href="bckstageimage.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Background Stage
-                        Images</span>
-                    <div class="clearfix"></div>
-                </a></li>
-            <li><a href="entranceimages.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Entrance
-                        Images</span>
-                    <div class="clearfix"></div>
-                </a></li>
-            <li><a href="chimgs.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>chairimages</span>
-                    <div class="clearfix"></div>
-                </a></li>
-
-
         </ul>
     </div>
 </div>

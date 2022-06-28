@@ -679,7 +679,7 @@ foreach($results1 as $result1)
             </form>
 
             <?php
-    }elseif ($result->PackageName == "sample") {
+    }elseif ($result->PackageName == "house warming") {
 
         ?>
             <form name="book" method="post">
