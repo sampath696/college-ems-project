@@ -105,26 +105,26 @@ $error="You can't cancel booking before 24 hours";
     <!-- top-header -->
     <div class="top-header">
         <?php include('includes/header.php');?>
-        <div class="banner-1 ">
+        <!-- <div class="banner-1 ">
             <div class="container">
                 <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
                     style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">ems-Tourism Management
                     System</h1>
-            </div>
-        </div>
+            </div> -->
+        </div><br><br>
         <!--- /banner-1 ---->
         <!--- privacy ---->
         <div class="privacy">
             <div class="container">
-                <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
-                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">My Bookings</h3>
+                <h1 class="wow fadeInDown animated animated" data-wow-delay=".5s"
+                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">My Bookings</h1>
                 <form name="chngpwd" method="post" onSubmit="return valid();">
                     <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
                     </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                     <p>
-                    <table border="1" width="100%">
-                        <tr align="center">
+                    <table class="table table-dark" >
+                        <tr align="center" style="background-color:black;color:white;">
                             <th>#</th>
                             <th>Booking Id</th>
                             <th>Package Name</th>
@@ -132,13 +132,14 @@ $error="You can't cancel booking before 24 hours";
                             <!-- <th>To</th> -->
                             <!-- <th>Comment</th> -->
                             <th>Status</th>
+                            <th>Package Price</th>
                             <th>Booking Date</th>
                             <th>Action</th>
                         </tr>
                         <?php 
 
 $uemail=$_SESSION['login'];;
-$sql = "SELECT tblbooking2.BookingId as bookid,tblbooking2.PackageId as pkgid,tbltourpackages.PackageName as packagename,tbltourpackages.PackagePrice as price,tblbooking2.FromDate as fromdate,tblbooking2.ToDate as todate,tblbooking2.Comment as comment,tblbooking2.status as status,tblbooking2.RegDate as regdate,tblbooking2.CancelledBy as cancelby,tblbooking2.UpdationDate as upddate from tblbooking2 join tbltourpackages on tbltourpackages.PackageId=tblbooking2.PackageId where UserEmail=:uemail";
+$sql = "SELECT tblbooking2.BookingId as bookid,tblbooking2.PackageId as pkgid,tbltourpackages.PackageName as packagename,tbltourpackages.PackagePrice as price,tblbooking2.FromDate as fromdate,tblbooking2.ToDate as todate,tblbooking2.Comment as comment,tblbooking2.status as status,tblbooking2.RegDate as regdate,tblbooking2.CancelledBy as cancelby,tblbooking2.UpdationDate as upddate from tblbooking2 join tbltourpackages on tbltourpackages.PackageId=tblbooking2.PackageId where UserEmail=:uemail ORDER BY cartid DESC";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':uemail', $uemail, PDO::PARAM_STR);
 $query->execute();
@@ -148,7 +149,7 @@ if($query->rowCount() > 0)
 {
 foreach($results as $result)
 {	?>
-                        <tr align="center">
+                        <tr>
                             <td><?php echo htmlentities($cnt);?></td>
                             <td>#BK<?php echo htmlentities($result->bookid);?></td>
                             <td><a
@@ -163,32 +164,44 @@ echo "Pending";
 }
 if($result->status==1)
 {
-echo "Confirmed by admin to confirm booking please make payment";
+echo "booking available";
 ?>
                                 <br>
                                 <!-- <a href="payment.php?bkid=<?php echo htmlentities($result->bookid);?>" class="atg">Click
                                     to pay</a> -->
-                                <a href="razorpay-php-testapp-master/pay.php?bkid=<?php echo htmlentities($result->bookid); ?>&em11=<?php echo htmlentities($uemail); ?>&price=<?php echo htmlentities($result->price); ?>" class="atg">Click
-                                    to pay</a>
+                                <a href="razorpay-php-testapp-master/pay.php?bkid=<?php echo htmlentities($result->bookid); ?>&em11=<?php echo htmlentities($uemail); ?>&price=<?php echo htmlentities($result->price); ?>"
+                                    class="atg">pay for booking confirmation</a>
                                 <!-- <a href="payment.php" class="atg">Click to pay</a> -->
+                                <?php
+}
+if($result->status==3)
+{
+echo "Paid";
+?>
+                                <br>
+                                <!-- <p>Paid</p> -->
                                 <?php
 }
 if($result->status==2 and  $result->cancelby=='u')
 {
 echo "Canceled by you at " .$result->upddate;
-?> <br> <a href="#" class="atg">Delete</a><?php
+?><?php
 } 
 if($result->status==2 and $result->cancelby=='a')
 {
 echo "Canceled by admin at " .$result->upddate;
-?> <br> <a href="#" class="atg">Delete</a><?php
+?><?php
 }
 ?>
                             </td>
+                            <td><?php echo htmlentities($result->price);?></td>
                             <td><?php echo htmlentities($result->regdate);?></td>
                             <?php if($result->status==2)
 {
 	?><td>Cancelled</td>
+                            <?php } elseif($result->status==3)
+{
+	?><td>Booking Confirmed</td>
                             <?php } else {?>
                             <td><a href="tour-history.php?bkid=<?php echo htmlentities($result->bookid);?>"
                                     onclick="return confirm('Do you really want to cancel booking')">Cancel</a></td>

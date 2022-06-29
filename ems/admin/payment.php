@@ -150,7 +150,7 @@ $msg="Booking Confirm successfully";
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $sql = "SELECT * from orders ";
+                                <?php $sql = "SELECT * from orders ORDER BY id DESC";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);

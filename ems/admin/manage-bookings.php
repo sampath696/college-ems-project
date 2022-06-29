@@ -150,11 +150,12 @@ $msg="Booking Confirm successfully";
                                     <th>From /To </th>
                                     <th>Comment </th>
                                     <th>Status </th>
+                                    <th>Amount </th>
                                     <th>Action </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $sql = "SELECT tblbooking2.BookingId as bookid,tblusers.FullName as fname,tblusers.MobileNumber as mnumber,tblusers.EmailId as email,tbltourpackages.PackageName as pckname,tblbooking2.PackageId as pid,tblbooking2.FromDate as fdate,tblbooking2.ToDate as tdate,tblbooking2.Comment as comment,tblbooking2.status as status,tblbooking2.CancelledBy as cancelby,tblbooking2.UpdationDate as upddate from tblusers join  tblbooking2 on  tblbooking2.UserEmail=tblusers.EmailId join tbltourpackages on tbltourpackages.PackageId=tblbooking2.PackageId";
+                                <?php $sql = "SELECT tblbooking2.BookingId as bookid,tblusers.FullName as fname,tblusers.MobileNumber as mnumber,tblusers.EmailId as email,tbltourpackages.PackageName as pckname,tblbooking2.PackageId as pid,tblbooking2.FromDate as fdate,tblbooking2.ToDate as tdate,tblbooking2.Comment as comment,tblbooking2.status as status,tbltourpackages.PackagePrice as price,tblbooking2.CancelledBy as cancelby,tblbooking2.UpdationDate as upddate from tblusers join  tblbooking2 on  tblbooking2.UserEmail=tblusers.EmailId join tbltourpackages on tbltourpackages.PackageId=tblbooking2.PackageId ORDER BY cartid DESC";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -171,10 +172,11 @@ foreach($results as $result)
                                     <td><a
                                             href="update-package.php?pid=<?php echo htmlentities($result->pid);?>"><?php echo htmlentities($result->pckname);?></a>
                                     </td>
-                                    <td><?php echo htmlentities($result->fdate);?> To
-                                        <?php echo htmlentities($result->tdate);?></td>
+                                    <td><?php echo htmlentities($result->fdate);?></td>
                                     <td>
-										<a href="display.php?bookid=<?php echo htmlentities($result->bookid);?>&pkgname=<?php echo htmlentities($result->pckname) ?> ">view items</a>
+                                        <a
+                                            href="display.php?bookid=<?php echo htmlentities($result->bookid);?>&pkgname=<?php echo htmlentities($result->pckname) ?> ">view
+                                            items</a>
                                         <!-- <?php echo htmlentities($result->comment);?> -->
                                     </td>
                                     <td><?php if($result->status==0)
@@ -184,6 +186,10 @@ echo "Pending";
 if($result->status==1)
 {
 echo "Confirmed";
+}
+if($result->status==3)
+{
+echo "Paid";
 }
 if($result->status==2 and  $result->cancelby=='a')
 {
@@ -196,14 +202,19 @@ echo "Canceled by User at " .$result->upddate;
 }
 ?></td>
 
+                                    <td><?php echo htmlentities($result->price);?></td>
+
                                     <?php if($result->status==2)
 {
 	?><td>Cancelled</td>
+                                    <?php }else if($result->status==3)
+{
+	?><td>Booking successful</td>
                                     <?php } else {?>
                                     <td><a href="manage-bookings.php?bkid=<?php echo htmlentities($result->bookid);?>"
                                             onclick="return confirm('Do you really want to cancel booking')">Cancel</a>
                                         / <a href="manage-bookings.php?bckid=<?php echo htmlentities($result->bookid);?>"
-                                            onclick="return confirm('Do you really want to cancel booking')">Confirm</a>
+                                            onclick="return confirm('Do you really want to confirm booking')">Confirm</a>
                                     </td>
                                     <?php }?>
 

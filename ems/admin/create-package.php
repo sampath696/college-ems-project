@@ -20,12 +20,14 @@ $wimage=$_FILES["welcomesign"]["name"];
 $bimage=$_FILES["backgroundstage"]["name"];
 $eimage=$_FILES["entrancedesign"]["name"];
 $cimage=$_FILES["chairimage"]["name"];
+$barcounter=$_FILES["barcounter"]["name"];
 move_uploaded_file($_FILES["packageimage"]["tmp_name"],"pacakgeimages/".$_FILES["packageimage"]["name"]);
 move_uploaded_file($_FILES["welcomesign"]["tmp_name"],"pacakgeimages/".$_FILES["welcomesign"]["name"]);
 move_uploaded_file($_FILES["backgroundstage"]["tmp_name"],"pacakgeimages/".$_FILES["backgroundstage"]["name"]);
 move_uploaded_file($_FILES["entrancedesign"]["tmp_name"],"pacakgeimages/".$_FILES["entrancedesign"]["name"]);
 move_uploaded_file($_FILES["chairimage"]["tmp_name"],"pacakgeimages/".$_FILES["chairimage"]["name"]);
-$sql="INSERT INTO TblTourPackages(PackageName,PackageType,PackageLocation,PackagePrice,PackageFetures,PackageDetails,PackageImage,WelcomeImage,BackgroundStageImage,EntranceImage,ChairImage) VALUES(:pname,:ptype,:plocation,:pprice,:pfeatures,:pdetails,:pimage,:wimage,:bimage,:eimage,:cimage)";
+move_uploaded_file($_FILES["barcounter"]["tmp_name"],"pacakgeimages/".$_FILES["barcounter"]["name"]);
+$sql="INSERT INTO TblTourPackages(PackageName,PackageType,PackageLocation,PackagePrice,PackageFetures,PackageDetails,PackageImage,WelcomeImage,BackgroundStageImage,EntranceImage,ChairImage,BarCounter) VALUES(:pname,:ptype,:plocation,:pprice,:pfeatures,:pdetails,:pimage,:wimage,:bimage,:eimage,:cimage,:barcounter)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':pname',$pname,PDO::PARAM_STR);
 $query->bindParam(':ptype',$ptype,PDO::PARAM_STR);
@@ -38,6 +40,7 @@ $query->bindParam(':wimage',$wimage,PDO::PARAM_STR);
 $query->bindParam(':bimage',$bimage,PDO::PARAM_STR);
 $query->bindParam(':eimage',$eimage,PDO::PARAM_STR);
 $query->bindParam(':cimage',$cimage,PDO::PARAM_STR);
+$query->bindParam(':barcounter',$barcounter,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
@@ -113,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--heder end here-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Update Package
+                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Create Package
                 </li>
             </ol>
             <!--grid-->
@@ -206,6 +209,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <label for="focusedinput" class="col-sm-2 control-label">chair Image</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="chairimage" id="chairimage">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">Bar Counter Image</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="barcounter" id="barcounter">
                                     </div>
                                 </div>
 

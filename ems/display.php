@@ -79,7 +79,7 @@ else{
                 <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
                     style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Items you selected
                 </h3>
-                <a href="cart.php" style="" >Back</a>
+                <a href="cart.php" style="">Back</a>
 
 
                 <?php
@@ -90,9 +90,11 @@ else{
                     if($result2 = mysqli_query($conn,$query2)){
 
                         while($row = mysqli_fetch_assoc($result2)){
-                            $mark = explode(",", $row['Comment']);
+                            $samplee = chop($row['Comment'],",");
+                            $mark = explode(",", $samplee);
                             foreach($mark as $mk){
-                                ?> <br> <span  > <img src="admin/pacakgeimages/<?php echo $mk;?>"width="400" alt=""></span> <br> <?php
+                                ?> <br> <span> <img src="admin/pacakgeimages/<?php echo $mk;?>" width="400"
+                        height="300" alt=""></span> <br> <?php
                             }
                             ?>
                 <?php
@@ -104,9 +106,11 @@ else{
                     if($result22 = mysqli_query($conn,$query22)){
                      
                         while($row = mysqli_fetch_assoc($result22)){
-                            $mark = explode(",", $row['Comment2']);
-                            foreach($mark as $mk){
-                                ?> <br> <?php echo $mk;
+                            $samplee = chop($row['Comment2'],",");
+                            $string = explode(",", $samplee);
+                            foreach($string as $mk){
+                                ?> <br>
+                <li><?php echo $mk;?></li><?php
                             }
                             ?>
                 <?php
@@ -114,6 +118,7 @@ else{
                     }                    
 
                     ?>
+
 
 
 

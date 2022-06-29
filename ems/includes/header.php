@@ -13,6 +13,12 @@ $query = $dbh->prepare($sql);
 $query->execute();
 $rowcnt = $query->rowCount();
 
+$sql = "SELECT UserEmail from tblbooking2 WHERE UserEmail= '$uemail' ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$rowcnt22 = $query->rowCount();
+
+
 ?>
 <div class="top-header">
     <div class="container">
@@ -29,7 +35,7 @@ $rowcnt = $query->rowCount();
             <!-- <li style="margin-left:30px;" class="prnt"><a href="cart.php">Cart - <strong><?php echo $rowcnt ?></strong>
                 </a></li> -->
                 <li class="sigi" style="margin:0px 20px 0px 30px"><a href="cart.php"><i class="fa fa-shopping-cart" style="font-size:18px;"></i>  <strong><?php echo $rowcnt ?></strong></a></li>
-            <li class="sigi"><a href="tour-history.php"> My Bookings</a></li>
+            <li class="sigi"><a href="tour-history.php"> My Bookings <strong><?php echo $rowcnt22 ?></strong></a></li>
             <!-- <li  ><a href="cart.php">Cart</a></li> -->
         </ul>
         <div class="clearfix"></div>

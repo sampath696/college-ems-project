@@ -60,6 +60,17 @@ if (mysqli_query($conn, $sql)) {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
+$status=3;
+$sql = "UPDATE tblbooking2 SET status=$status WHERE  UserEmail='$email' ";
+if (mysqli_query($conn, $sql)) {
+    echo "Record updated successfully";
+  } else {
+    echo "Error updating record: " . mysqli_error($conn);
+  }
+
+
+
+
 mysqli_close($conn);
 
 ?>
@@ -68,9 +79,9 @@ mysqli_close($conn);
 //  exit;
     $html = "<p>Your payment was successful</p>
              <p>Payment ID: {$_POST['razorpay_payment_id']}</p>";
-             ?>
-             <a href="../userfeedback.php">Give Feedback</a>
-             <?php
+             ?><br>
+<a href="../userfeedback.php">Give Feedback</a>
+<?php
 }
 else
 {

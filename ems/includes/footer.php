@@ -1,6 +1,6 @@
 <!--- /footer-top ---->
 <!---copy-right ---->
-<div class="copy-right">
+<div class="copy-right" style="position:fixed; bottom:0; width:100%;" >
     <div class="container">
 
         <div class="footer-social-icons wow fadeInDown animated animated" data-wow-delay=".5s"

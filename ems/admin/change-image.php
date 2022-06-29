@@ -12,13 +12,19 @@ if(isset($_POST['submit']))
 {
 
 $pimage=$_FILES["packageimage"]["name"];
+$pimage=$_FILES["packageimage"]["name"];
+$wimage=$_FILES["welcomesign"]["name"];
+$bimage=$_FILES["backgroundstage"]["name"];
+$eimage=$_FILES["entrancedesign"]["name"];
 $cimage=$_FILES["chairimage"]["name"];
+$barcounter=$_FILES["barcounter"]["name"];
 move_uploaded_file($_FILES["packageimage"]["tmp_name"],"pacakgeimages/".$_FILES["packageimage"]["name"]);
 move_uploaded_file($_FILES["welcomesign"]["tmp_name"],"pacakgeimages/".$_FILES["welcomesign"]["name"]);
 move_uploaded_file($_FILES["backgroundstage"]["tmp_name"],"pacakgeimages/".$_FILES["backgroundstage"]["name"]);
 move_uploaded_file($_FILES["entrancedesign"]["tmp_name"],"pacakgeimages/".$_FILES["entrancedesign"]["name"]);
 move_uploaded_file($_FILES["chairimage"]["tmp_name"],"pacakgeimages/".$_FILES["chairimage"]["name"]);
-$sql="update TblTourPackages set PackageImage=:pimage, WelcomeImage=:wimage, BackgroundStageImage=:bimage, EntranceImage=:eimage, ChairImage=:cimage where PackageId=:imgid";
+move_uploaded_file($_FILES["barcounter"]["tmp_name"],"pacakgeimages/".$_FILES["barcounter"]["name"]);
+$sql="update TblTourPackages set PackageImage=:pimage, WelcomeImage=:wimage, BackgroundStageImage=:bimage, EntranceImage=:eimage, ChairImage=:cimage, BarCounter=:barcounter where PackageId=:imgid";
 $query = $dbh->prepare($sql);
 
 $query->bindParam(':imgid',$imgid,PDO::PARAM_STR);
@@ -27,6 +33,7 @@ $query->bindParam(':wimage',$wimage,PDO::PARAM_STR);
 $query->bindParam(':bimage',$bimage,PDO::PARAM_STR);
 $query->bindParam(':eimage',$eimage,PDO::PARAM_STR);
 $query->bindParam(':cimage',$cimage,PDO::PARAM_STR);
+$query->bindParam(':barcounter',$barcounter,PDO::PARAM_STR);
 $query->execute();
 $msg="Package Created Successfully";
 
@@ -113,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <form class="form-horizontal" name="package" method="post" enctype="multipart/form-data">
                                 <?php 
 $imgid=intval($_GET['imgid']);
-$sql = "SELECT PackageImage, ChairImage from TblTourPackages where PackageId=:imgid";
+$sql = "SELECT PackageImage, WelcomeImage, BackgroundStageImage,EntranceImage, ChairImage, BarCounter from TblTourPackages where PackageId=:imgid";
 $query = $dbh -> prepare($sql);
 $query -> bindParam(':imgid', $imgid, PDO::PARAM_STR);
 $query->execute();
@@ -191,6 +198,20 @@ foreach($results as $result)
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="chairimage" id="chairimage" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label"> BarCounter Image </label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->BarCounter);?>"
+                                            width="200">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="barcounter" id="barcounter" >
                                     </div>
                                 </div>
                                 <?php }} ?>

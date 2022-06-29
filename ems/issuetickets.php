@@ -92,7 +92,7 @@ else{
                         <?php 
 
 $uemail=$_SESSION['login'];;
-$sql = "SELECT * from tblissues where UserEmail=:uemail";
+$sql = "SELECT * from tblissues where UserEmail=:uemail ORDER BY id DESC";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':uemail', $uemail, PDO::PARAM_STR);
 $query->execute();

@@ -187,9 +187,10 @@ foreach($results as $result)
                     if($result2 = mysqli_query($conn,$query2)){
 
                         while($row = mysqli_fetch_assoc($result2)){
-                            $mark = explode(",", $row['Comment']);
+                            $samplee = chop($row['Comment'],",");
+                            $mark = explode(",", $samplee);
                             foreach($mark as $mk){
-                                ?> <br> <img src="pacakgeimages/<?php echo $mk;?>" width="500" alt=""> <?php
+                                ?> <br> <img src="pacakgeimages/<?php echo $mk;?>" width="500" height="300" alt=""><br> <?php
                             }
                             ?>
                 <?php
@@ -200,10 +201,11 @@ foreach($results as $result)
                     $query22 = "SELECT * from tblbooking2 where BookingId = $bookid";
                     if($result22 = mysqli_query($conn,$query22)){
                      
-                        while($row = mysqli_fetch_assoc($result22)){
-                            $mark = explode(",", $row['Comment2']);
+                        while($row = mysqli_fetch_assoc($result22)){                            
+                            $samplee = chop($row['Comment2'],",");
+                            $mark = explode(",", $samplee);
                             foreach($mark as $mk){
-                                ?> <br> <?php echo $mk;
+                                ?> <br> <li><?php echo $mk;?></li><?php
                             }
                             ?>
                 <?php

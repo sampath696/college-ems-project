@@ -14,13 +14,14 @@
                     <div class="clearfix"></div>
                 </a>
                 <ul id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="create-package.php">Create</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="manage-packages.php">Manage</a></li>
+                    <li id="menu-academico-avaliacoes"><a href="create-package.php">Create Package</a></li>
+                    <li id="menu-academico-avaliacoes"><a href="manage-packages.php">Manage Package</a></li>
                     <li id="menu-academico-avaliacoes"><a href="welcomeimages.php">insert Welcome-sign image</a></li>
                     <li id="menu-academico-avaliacoes"><a href="bckstageimage.php">insert Background-stage images</a>
                     </li>
                     <li id="menu-academico-avaliacoes"><a href="entranceimages.php">insert Entrance images</a></li>
                     <li id="menu-academico-avaliacoes"><a href="chimgs.php">insert Chair images</a></li>
+                    <li id="menu-academico-avaliacoes"><a href="barcounter.php">insert Bar Counter images</a></li>
                 </ul>
             </li>
             <li id="menu-academico"><a href="manage-users.php"><i class="fa fa-users"
