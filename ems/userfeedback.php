@@ -2,11 +2,29 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['login'])==0)
-	{	
-header('location:index.php');
+if(isset($_POST['submit1']))
+{
+$fname=$_POST['fname'];
+$feedback=$_POST['feedback'];	
+$suggestion=$_POST['suggestion'];
+$sql="INSERT INTO feedback(username,feedback,suggestion) VALUES(:fname,:feedback,:suggestion)";
+$query = $dbh->prepare($sql);
+$query->bindParam(':fname',$fname,PDO::PARAM_STR);
+$query->bindParam(':feedback',$feedback,PDO::PARAM_STR);
+$query->bindParam(':suggestion',$suggestion,PDO::PARAM_STR);
+$query->execute();
+$lastInsertId = $dbh->lastInsertId();
+if($lastInsertId)
+{
+$msg="Thank you for Feedback";
+// confirm('Do you really want to remove from cart');
 }
-else{
+else 
+{
+$error="Something went wrong. Please try again";
+}
+
+}
 
 ?>
 <!DOCTYPE HTML>
@@ -35,7 +53,6 @@ else{
     <script>
     new WOW().init();
     </script>
-
     <style>
     .errorWrap {
         padding: 10px;
@@ -73,55 +90,39 @@ else{
         <div class="privacy">
             <div class="container">
                 <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
-                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">My Bookings</h3>
-                <form name="chngpwd" method="post" onSubmit="return valid();">
+                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Feedback</h3>
+                <form name="enquiry" method="post">
                     <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
                     </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
-                    <p>
-                    <table border="1" width="100%">
-                        <tr align="center">
-                            <th>#</th>
-                            <th>Booking Id</th>
-                            <th>Package Name</th>
-                            <th>From</th>
-                            <th>To</th>
-                            <th>Comment</th>
-                        </tr>
-                        <?php 
-if(isset($_REQUEST['bkid']))
-{
+                    <p style="width: 350px;">
 
-$bkid=intval($_GET['bkid']);
-$sql = "SELECT tblbooking2.BookingId as bookid,tblbooking2.PackageId as pkgid,tbltourpackages.PackageName as packagename,tblbooking2.FromDate as fromdate,tblbooking2.ToDate as todate,tblbooking2.Comment as comment,tblbooking2.status as status,tblbooking2.RegDate as regdate,tblbooking2.CancelledBy as cancelby,tblbooking2.UpdationDate as upddate from tblbooking2 join tbltourpackages on tbltourpackages.PackageId=tblbooking2.PackageId where BookingId= $bkid ";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{	?>
-                        <tr align="center">
-                            <td><?php echo htmlentities($cnt);?></td>
-                            <td>#BK<?php echo htmlentities($result->bookid);?></td>
-                            <td><a
-                                    href="package-details.php?pkgid=<?php echo htmlentities($result->pkgid);?>"><?php echo htmlentities($result->packagename);?></a>
-                            </td>
-                            <td><?php echo htmlentities($result->fromdate);?></td>
-                            <td><?php echo htmlentities($result->todate);?></td>
-                            <td><?php echo htmlentities($result->comment);?></td>
-                        </tr>
-                        <?php $cnt=$cnt+1; 
-}
-}
-}
- ?>
-                    </table>
+                        <b>Full name</b> <input type="text" name="fname" class="form-control" id="fname"
+                            placeholder="Full Name" required="">
+                    </p>
 
+                    <p style="width: 350px;">
+                        <b>rate our service</b> 
+                        <!-- <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" required=""> -->
+                        <select name="feedback" id="">
+                            <option value="Excellent">Excellent</option>
+                            <option value="Better">Better</option>
+                            <option value="Good">Good</option>
+                            <option value="Average">Average</option>
+                            <option value="GooBad">GooBad</option>
+                        </select>
+                    </p>
+                    <p style="width: 350px;">
+                        <b>Suggestion</b> <textarea name="suggestion" class="form-control" rows="6" cols="50"
+                            id="description" placeholder="Suggestion" required=""></textarea>
+                    </p>
+
+                    <p style="width: 350px;">
+                        <button type="submit" name="submit1" class="btn-primary btn">Submit</button>
                     </p>
                 </form>
 
+                
 
             </div>
         </div>
@@ -140,4 +141,3 @@ foreach($results as $result)
 </body>
 
 </html>
-<?php } ?>
