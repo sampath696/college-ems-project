@@ -8,38 +8,6 @@ header('location:index.php');
 }
 else{ 
 	// code for cancel
-if(isset($_REQUEST['bkid']))
-	{
-$bid=intval($_GET['bkid']);
-$status=2;
-$cancelby='a';
-$sql = "UPDATE tblbooking2 SET status=:status,CancelledBy=:cancelby WHERE  BookingId=:bid";
-$query = $dbh->prepare($sql);
-$query -> bindParam(':status',$status, PDO::PARAM_STR);
-$query -> bindParam(':cancelby',$cancelby , PDO::PARAM_STR);
-$query-> bindParam(':bid',$bid, PDO::PARAM_STR);
-$query -> execute();
-
-$msg="Booking Cancelled successfully";
-}
-
-
-if(isset($_REQUEST['bckid']))
-	{
-$bcid=intval($_GET['bckid']);
-$status=1;
-$cancelby='a';
-$sql = "UPDATE tblbooking2 SET status=:status WHERE BookingId=:bcid";
-$query = $dbh->prepare($sql);
-$query -> bindParam(':status',$status, PDO::PARAM_STR);
-$query-> bindParam(':bcid',$bcid, PDO::PARAM_STR);
-$query -> execute();
-$msg="Booking Confirm successfully";
-}
-
-
-
-
 	?>
 <!DOCTYPE HTML>
 <html>
@@ -95,6 +63,7 @@ $msg="Booking Confirm successfully";
     <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet'
         type='text/css' />
     <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <style>
     .errorWrap {
@@ -118,6 +87,7 @@ $msg="Booking Confirm successfully";
 </head>
 
 <body>
+
     <div class="page-container">
         <!--/content-inner-->
         <div class="left-content">
@@ -128,58 +98,15 @@ $msg="Booking Confirm successfully";
             </div>
             <!--heder end here-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Home</a><i class="fa fa-angle-right"></i>Manage Bookings
+                <li class="breadcrumb-item"><a href="index.php">Home</a><i class="fa fa-angle-right"></i>View Selected
+                    Item of customer
                 </li>
             </ol>
-            <div class="agile-grids">
-                <!-- tables -->
-                <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
-                </div><?php } 
-				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
-                <div class="agile-tables">
-                    <div class="w3l-table-info">
-                        <h2>Manage Bookings</h2>
-                        <table id="table">
-                            <thead>
-                                <tr>
-                                    <th>Booikn id</th>
-                                    <th>Comment </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-$bookid=$_GET['bookid'];
-//$sql = "SELECT tblbooking2.BookingId as bookid,tblusers.FullName as fname,tblusers.MobileNumber as mnumber,tblusers.EmailId as email,tbltourpackages.PackageName as pckname,tblbooking2.PackageId as pid,tblbooking2.FromDate as fdate,tblbooking2.ToDate as tdate,tblbooking2.Comment as comment,tblbooking2.status as status,tblbooking2.CancelledBy as cancelby,tblbooking2.UpdationDate as upddate from tblusers join  tblbooking2 on  tblbooking2.UserEmail=tblusers.EmailId join tbltourpackages on tbltourpackages.PackageId=tblbooking2.PackageId";
-$sql = "SELECT * from tblbooking2 where BookingId = $bookid";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{				?>
-                                <tr>
-                                    <td>#BK-<?php echo htmlentities($result->BookingId);?></td>
-                                    <td>
-                                        <?php echo htmlentities($result->Comment);?>
-                                    </td>
 
-                                </tr>
-
-                            </tbody>
-                        </table>
-
-                        <h1><?php echo htmlentities($result->UserEmail);?></h1>
-
-                        <?php $cnt=$cnt+1;} }?>
-
-                        <a href="manage-bookings.php" class="view">Back</a>
-                    </div>
+            <div class="container" align="center">
 
 
-
-                    <?php
+                <?php
                     $conn=mysqli_connect("localhost", "root", "", "ems");
                     $bookid=$_GET['bookid'];
                     //$sql = "SELECT tblbooking2.BookingId as bookid,tblusers.FullName as fname,tblusers.MobileNumber as mnumber,tblusers.EmailId as email,tbltourpackages.PackageName as pckname,tblbooking2.PackageId as pid,tblbooking2.FromDate as fdate,tblbooking2.ToDate as tdate,tblbooking2.Comment as comment,tblbooking2.status as status,tblbooking2.CancelledBy as cancelby,tblbooking2.UpdationDate as upddate from tblusers join  tblbooking2 on  tblbooking2.UserEmail=tblusers.EmailId join tbltourpackages on tbltourpackages.PackageId=tblbooking2.PackageId";
@@ -190,32 +117,69 @@ foreach($results as $result)
                             $samplee = chop($row['Comment'],",");
                             $mark = explode(",", $samplee);
                             foreach($mark as $mk){
-                                ?> <br> <img src="pacakgeimages/<?php echo $mk;?>" width="500" height="300" alt=""><br> <?php
-                            }
-                            ?>
+                                ?>
+                <div class="" id="plans">
+                    <div class="w3-third w3-margin-bottom" style="margin-left:130px;">
+                        <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+                            <li class="w3-black w3-xlarge w3-padding-32" style="text-transform:capitalize;">
+                                <?php
+if(substr($mk,0,3) == "cha"){
+    $rs = "Chair image";
+}else if(substr($mk,0,3) == "wel"){
+    $rs = "Welcome Sign image";
+}else if(substr($mk,0,3) == "bac"){
+    $rs = "BackgroundStage image";
+}else if(substr($mk,0,3) == "ent"){
+    $rs = "Entrance image";
+}else if(substr($mk,0,3) == "bar"){
+    $rs = "BarCounter image";
+}else{
+    $rs = "$mk";
+}
+?>
+                                <?php echo $rs; ?>
+                            </li>
+                            <img src="pacakgeimages/<?php echo $mk;?>" height="200" width="350" alt="img">
+                        </ul>
+                    </div>
+                </div>
                 <?php
+                            }
                         }
                     }
+                    ?>
 
 
+                <br><br><br>
+                <table border="1" class="table">
+                    <tr style="color:white;">
+                        <th>Items</th>
+                    </tr>
+                    <?php
                     $query22 = "SELECT * from tblbooking2 where BookingId = $bookid";
                     if($result22 = mysqli_query($conn,$query22)){
                      
-                        while($row = mysqli_fetch_assoc($result22)){                            
+                        while($row = mysqli_fetch_assoc($result22)){
                             $samplee = chop($row['Comment2'],",");
-                            $mark = explode(",", $samplee);
-                            foreach($mark as $mk){
-                                ?> <br> <li><?php echo $mk;?></li><?php
+                            $string = explode(",", $samplee);
+                            foreach($string as $mk){
+                                ?>
+                    <tr>
+                        <td>
+                            <?php echo $mk;?><br>
+                        </td>
+                    </tr>
+                    <?php
                             }
                             ?>
-                <?php
+                    <?php
                         }
                     }                    
 
                     ?>
+                </table>
 
 
-                </div>
 
 
             </div>

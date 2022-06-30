@@ -16,7 +16,7 @@ $query = $dbh->prepare($sql);
 $query -> bindParam(':pagetype',$pagetype, PDO::PARAM_STR);
 $query-> bindParam(':pagedetails',$pagedetails, PDO::PARAM_STR);
 $query -> execute();
-$msg="Page data updated  successfully";
+$msg="Page data updated successfully";
 
 }
 

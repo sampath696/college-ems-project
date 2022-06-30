@@ -74,6 +74,7 @@ $cnt=$query->rowCount();
 
                         </div>
                     </div>
+
                     <div class="col-md-3 four-grid">
                         <div class="four-agileinfo">
                             <div class="icon">
@@ -93,6 +94,8 @@ $cnt1=$query1->rowCount();
 
                         </div>
                     </div>
+
+
                     <div class="col-md-3 four-grid">
                         <div class="four-w3ls">
                             <div class="icon">
@@ -112,6 +115,7 @@ $cnt2=$query2->rowCount();
 
                         </div>
                     </div>
+
                     <div class="col-md-3 four-grid">
                         <div class="four-wthree">
                             <div class="icon">
@@ -131,18 +135,59 @@ $cnt3=$query3->rowCount();
 
                         </div>
                     </div>
+
                     <div class="clearfix"></div>
                 </div>
 
                 <div class="four-grids">
                     <div class="col-md-3 four-grid">
-                        <div class="four-w3ls">
+                        <div class="four-w3ls" style="background-color:#3541e9" >
                             <div class="icon">
                                 <i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>
                             </div>
                             <div class="four-text">
                                 <h3>FAQ</h3>
                                 <?php $sql5 = "SELECT id from tblissues";
+$query5= $dbh -> prepare($sql5);
+$query5->execute();
+$results5=$query5->fetchAll(PDO::FETCH_OBJ);
+$cnt5=$query5->rowCount();
+					?>
+                                <h4><?php echo htmlentities($cnt5);?></h4>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 four-grid">
+                        <div class="four-w3ls" style="background-color:#8ca145">
+                            <div class="icon">
+                                <i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>
+                            </div>
+                            <div class="four-text">
+                                <h3>Payments</h3>
+                                <?php $sql5 = "SELECT id from orders";
+$query5= $dbh -> prepare($sql5);
+$query5->execute();
+$results5=$query5->fetchAll(PDO::FETCH_OBJ);
+$cnt5=$query5->rowCount();
+					?>
+                                <h4><?php echo htmlentities($cnt5);?></h4>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 four-grid">
+                        <div class="four-w3ls" style="background-color:#36dd6d">
+                            <div class="icon">
+                                <i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>
+                            </div>
+                            <div class="four-text">
+                                <h3>User Feedbacks</h3>
+                                <?php $sql5 = "SELECT fid from feedback";
 $query5= $dbh -> prepare($sql5);
 $query5->execute();
 $results5=$query5->fetchAll(PDO::FETCH_OBJ);

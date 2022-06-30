@@ -39,6 +39,7 @@ $msg="Profile Updated Successfully";
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="css/font-awesome.css" rel="stylesheet">
     <!-- Custom Theme files -->
     <script src="js/jquery-1.12.0.min.js"></script>
@@ -75,19 +76,13 @@ $msg="Profile Updated Successfully";
     <!-- top-header -->
     <div class="top-header">
         <?php include('includes/header.php');?>
-        <div class="banner-1 ">
-            <div class="container">
-                <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
-                    style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">EMS-Event Management
-                    System</h1>
-            </div>
-        </div>
         <!--- /banner-1 ---->
         <!--- privacy ---->
-        <div class="privacy">
+        <img style="display:inline;" src="images/profile.svg" alt="" align="right">
+        <div class="privacy" align="left">
             <div class="container">
                 <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
-                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Change Password</h3>
+                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Edit Profile</h3>
                 <form name="chngpwd" method="post">
                     <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
                     </div><?php } 

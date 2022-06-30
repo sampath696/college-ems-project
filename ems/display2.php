@@ -68,7 +68,7 @@ else{
     <!--- /banner-1 ---->
     <!--- privacy ---->
     <div class="privacy">
-        <div class="container" align="center">
+        <div class="container">
             <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
                 style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
                 <center>Items you selected</center>
@@ -76,12 +76,11 @@ else{
             </h3>
 
 
-            <div class="container">
-                <?php
+            <?php
                     $conn=mysqli_connect("localhost", "root", "", "ems");
-                    $cartid=$_GET['cid'];
+                    $cartid=$_GET['cid2'];
                     //$sql = "SELECT tblbooking2.BookingId as bookid,tblusers.FullName as fname,tblusers.MobileNumber as mnumber,tblusers.EmailId as email,tbltourpackages.PackageName as pckname,tblbooking2.PackageId as pid,tblbooking2.FromDate as fdate,tblbooking2.ToDate as tdate,tblbooking2.Comment as comment,tblbooking2.status as status,tblbooking2.CancelledBy as cancelby,tblbooking2.UpdationDate as upddate from tblusers join  tblbooking2 on  tblbooking2.UserEmail=tblusers.EmailId join tbltourpackages on tbltourpackages.PackageId=tblbooking2.PackageId";
-                    $query2 = "SELECT * from tblbooking where BookingId = $cartid";
+                    $query2 = "SELECT * from tblbooking2 where BookingId = $cartid";
                     if($result2 = mysqli_query($conn,$query2)){
 
                         while($row = mysqli_fetch_assoc($result2)){
@@ -89,12 +88,11 @@ else{
                             $mark = explode(",", $samplee);
                             foreach($mark as $mk){
                                 ?>
-
-                <div class="" id="plans">
-                    <div class="w3-third w3-margin-bottom" style="margin-left:130px;">
-                        <ul class="w3-ul w3-border w3-center w3-hover-shadow">
-                            <li class="w3-black w3-xlarge w3-padding-32" style="text-transform:capitalize;">
-                                <?php
+            <div class="" id="plans">
+                <div class="w3-third w3-margin-bottom" style="margin-left:130px;">
+                    <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+                        <li class="w3-black w3-xlarge w3-padding-32" style="text-transform:capitalize;">
+                            <?php
 if(substr($mk,0,3) == "cha"){
     $rs = "Chair image";
 }else if(substr($mk,0,3) == "wel"){
@@ -109,28 +107,26 @@ if(substr($mk,0,3) == "cha"){
     $rs = "$mk";
 }
 ?>
-                                <?php echo $rs; ?>
-                            </li>
-                            <img src="admin/pacakgeimages/<?php echo $mk;?>" height="200" width="350" alt="img">
-                        </ul>
-                    </div>
+                            <?php echo $rs; ?>
+                        </li>
+                        <img src="admin/pacakgeimages/<?php echo $mk;?>" height="200" width="350" alt="img">
+                    </ul>
                 </div>
-                <?php
+            </div>
+            <?php
                             }
                             ?>
-                <?php
+            <?php
                         }
                     }
 ?>
-            </div>
-
-            <br><br><br><br><br>
+            <br><br><br>
             <table border="1" class="table">
                 <tr style="background-color:black;color:white;">
                     <th>Items</th>
                 </tr>
                 <?php
-                    $query22 = "SELECT * from tblbooking where BookingId = $cartid";
+                    $query22 = "SELECT * from tblbooking2 where BookingId = $cartid";
                     if($result22 = mysqli_query($conn,$query22)){
                      
                         while($row = mysqli_fetch_assoc($result22)){
@@ -152,6 +148,14 @@ if(substr($mk,0,3) == "cha"){
 
                     ?>
             </table>
+
+
+
+
+
+
+
+
 
         </div>
     </div>

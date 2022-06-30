@@ -45,10 +45,10 @@
             <li><a href="Feedbacks.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>FeedBacks</span>
                     <div class="clearfix"></div>
                 </a></li>
-            <li><a href="manage-pages.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Manage
+            <!-- <li><a href="manage-pages.php"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Manage
                         Pages</span>
                     <div class="clearfix"></div>
-                </a></li>
+                </a></li> -->
         </ul>
     </div>
 </div>

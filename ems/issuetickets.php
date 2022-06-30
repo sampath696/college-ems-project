@@ -24,6 +24,7 @@ else{
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="css/font-awesome.css" rel="stylesheet">
     <!-- Custom Theme files -->
     <script src="js/jquery-1.12.0.min.js"></script>
@@ -60,13 +61,13 @@ else{
     <!-- top-header -->
     <div class="top-header">
         <?php include('includes/header.php');?>
-        <div class="banner-1 ">
+        <!-- <div class="banner-1 ">
             <div class="container">
                 <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
                     style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">ems-Tourism Management
                     System</h1>
             </div>
-        </div>
+        </div> -->
         <!--- /banner-1 ---->
         <!--- privacy ---->
         <div class="privacy">
@@ -78,10 +79,9 @@ else{
                     </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                     <p>
-                    <table border="1" width="100%">
-                        <tr align="center">
-                            <th>#</th>
-                            <th>Ticket Id</th>
+                    <table width="100%">
+                        <tr align="center" style="background-color:black; color:white;">
+                            <th>Sl.No</th>
                             <th>Enquiries</th>
                             <th>Description</th>
                             <th>Admin Remark</th>
@@ -102,11 +102,10 @@ if($query->rowCount() > 0)
 {
 foreach($results as $result)
 {	?>
-                        <tr align="center">
+                        <tr style="font-weight:bold;">
                             <td><?php echo htmlentities($cnt);?></td>
-                            <td width="100">#TKT-<?php echo htmlentities($result->id);?></td>
                             <td><?php echo htmlentities($result->Issue);?></td>
-                            <td width="300"><?php echo htmlentities($result->Description);?></td>
+                            <td width="250"><?php echo htmlentities($result->Description);?></td>
                             <td><?php echo htmlentities($result->AdminRemark);?></td>
                             <td width="100"><?php echo htmlentities($result->PostingDate);?></td>
                             <td width="100"><?php echo htmlentities($result->AdminremarkDate);?></td>
@@ -116,7 +115,7 @@ foreach($results as $result)
 
                     </p>
                 </form>
-
+<br><br>
 
             </div>
         </div>

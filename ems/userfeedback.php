@@ -77,17 +77,9 @@ $error="Something went wrong. Please try again";
 <body>
     <!-- top-header -->
     <div class="top-header">
-        <?php include('includes/header.php');?>
-        <div class="banner-1 ">
-            <div class="container">
-                <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
-                    style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">ems-Tourism Management
-                    System</h1>
-            </div>
-        </div>
-        <!--- /banner-1 ---->
-        <!--- privacy ---->
-        <div class="privacy">
+        <?php include('includes/header.php');?><br>
+        <img style="display:inline;" src="images/feedback.svg" alt="" align="right">
+        <div class="privacy" style="margin-top:-60px;" align="left">
             <div class="container">
                 <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
                     style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Feedback</h3>
@@ -102,15 +94,21 @@ $error="Something went wrong. Please try again";
                     </p>
 
                     <p style="width: 350px;">
-                        <b>rate our service</b> 
-                        <!-- <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" required=""> -->
-                        <select name="feedback" id="">
-                            <option value="Excellent">Excellent</option>
-                            <option value="Better">Better</option>
-                            <option value="Good">Good</option>
-                            <option value="Average">Average</option>
-                            <option value="GooBad">GooBad</option>
-                        </select>
+                        <b>rate our service</b>
+                    </p>
+                    <p>
+                        <i onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='black'" class="fa fa-smile-o "
+                            style="font-size:100px; color:black;" aria-hidden="true"></i>
+                        <i onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='black'" class="fa fa-meh-o "
+                            style="font-size:100px; color:black;" aria-hidden="true"></i>
+                        <i onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='black'" class="fa fa-frown-o "
+                            style="font-size:100px; color:black;" aria-hidden="true"></i>
+
+                    </p>
+                    <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="feedback" value="happy" style="width: 30px; height:30px; margin:0px 50px 0px 0px;" name="" id="">
+                        <input type="radio" name="feedback" value="avarage" style="width: 30px; height:30px; margin:0px 60px 0px 0px;" name="" id="">
+                        <input type="radio" name="feedback" value="sad" style="width: 30px; height:30px; margin:0px 0px 0px 0px;" name="" id="">
                     </p>
                     <p style="width: 350px;">
                         <b>Suggestion</b> <textarea name="suggestion" class="form-control" rows="6" cols="50"
@@ -122,7 +120,7 @@ $error="Something went wrong. Please try again";
                     </p>
                 </form>
 
-                
+
 
             </div>
         </div>

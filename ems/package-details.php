@@ -144,7 +144,7 @@ $error="Something went wrong. Please try again";
 
 
     .sidenav {
-        width: 90px;
+        width: 130px;
         position: fixed;
         z-index: 1;
         top: 150px;
@@ -215,13 +215,6 @@ $error="Something went wrong. Please try again";
     <!-- top-header -->
     <?php include('includes/header.php');?>
 
-    <div class="banner-3">
-        <div class="container">
-            <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
-                style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> ems -Package Details</h1>
-        </div>
-    </div>
-
 
 
     <!--- /banner ---->
@@ -245,14 +238,17 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {	
         ?>
+        <h1>
+            <center>EMS-Package Details</center>
+        </h1>
 
             <div class="sidenav">
-                <a href="#date">select date</a>
-                <a href="#decr">decor items</a>
-                <a href="#welcome">select welcome sign</a>
-                <a href="#bck">select background stage</a>
-                <a href="#entrance">select entrance image</a>
-                <a href="#chair">select chairs</a>
+                <a href="#date">select date</a><br>
+                <a href="#decr">decor items</a><br>
+                <a href="#welcome">select welcome sign</a><br>
+                <a href="#bck">select background stage</a><br>
+                <a href="#entrance">select entrance image</a><br>
+                <a href="#chair">select chairs</a><br>
             </div>
             <form name="book" method="post">
                 <div class="selectroom_top" id="date">
@@ -260,16 +256,15 @@ foreach($results as $result)
                         <img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>"
                             class="img-responsive" alt="">
                     </div>
-                    <div class="col-md-8 selectroom_right wow fadeInRight animated" data-wow-delay=".5s">
-                        <h2><?php echo htmlentities($result->PackageName);?></h2>
-                        <p class="dow">#PKG-<?php echo htmlentities($result->PackageId);?></p>
-                        <p><b>Package Type :</b> <?php echo htmlentities($result->PackageType);?></p>
-                        <p><b>Package Location :</b> <?php echo htmlentities($result->PackageLocation);?></p>
+                    <div class="col-md-8 selectroom_right" data-wow-delay=".5s">
+                        <h2><?php echo htmlentities($result->PackageName);?></h2><br>
+                        <!-- <p class="dow">#PKG-<?php echo htmlentities($result->PackageId);?></p> -->
+                        <p><b>Package Type :</b> <?php echo htmlentities($result->PackageType);?></p><br>
+                        <p><b>Package Location :</b> <?php echo htmlentities($result->PackageLocation);?></p><br>
                         <p><b>Features</b> <?php echo htmlentities($result->PackageFetures);?></p>
                         <div class="ban-bottom">
                             <div class="bnr-right">
-                                <label class="inputLabel">Date</label>
-                                Date : <input type="date" id="date-picker" name="fromdate" required>
+                                Select Your Event Date: <input type="date" id="date-picker" name="fromdate" required>
                                 <script language="javascript">
                                 var today = new Date();
                                 var dd = String(today.getDate()).padStart(2, '0');
@@ -305,10 +300,6 @@ foreach($results as $result)
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Sounds</td>
-                                <td><input type="checkbox" checked name="techno2[]" value="Sounds"></td>
-                            </tr>
                             <input type="hidden" checked name="techno2[]" value="No of chairs:">
                             <tr>
                                 <td>No Of Chairs</td>

@@ -38,6 +38,14 @@ $msg="Booking Confirm successfully";
 }
 
 
+if(isset($_REQUEST['did'])){
+	$did=intval($_GET['did']);
+	
+	$sql = "DELETE FROM tblbooking2 where BookingId = $did";
+	$query = $dbh->prepare($sql);
+	$query->execute();
+	
+	}
 
 
 	?>
@@ -151,7 +159,7 @@ $msg="Booking Confirm successfully";
                                     <th>Comment </th>
                                     <th>Status </th>
                                     <th>Amount </th>
-                                    <th>Action </th>
+                                    <th colspan="2">Action </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -217,6 +225,10 @@ echo "Canceled by User at " .$result->upddate;
                                             onclick="return confirm('Do you really want to confirm booking')">Confirm</a>
                                     </td>
                                     <?php }?>
+                                    <!-- <td><a href="manage-bookings.php?did=<?php echo htmlentities($result->bookid);?>"
+                                            onclick="return confirm('Do you really want to remove from Booking')">Delete
+                                        </a>
+                                    </td> -->
 
                                 </tr>
                                 <?php $cnt=$cnt+1;} }?>

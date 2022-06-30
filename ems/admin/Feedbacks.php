@@ -37,7 +37,14 @@ $query -> execute();
 $msg="Booking Confirm successfully";
 }
 
-
+if(isset($_REQUEST['did'])){
+	$did=intval($_GET['did']);
+	
+	$sql = "DELETE FROM feedback where fid = $did";
+	$query = $dbh->prepare($sql);
+	$query->execute();
+	
+	}
 
 
 	?>
@@ -145,6 +152,7 @@ $msg="Booking Confirm successfully";
                                     <th>Name</th>
                                     <th>Feedback</th>
                                     <th>suggetion</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -161,6 +169,10 @@ foreach($results as $result)
                                     <td><?php echo htmlentities($result->username);?></td>
                                     <td><?php echo htmlentities($result->feedback);?></td>
                                     <td><?php echo htmlentities($result->suggestion);?></td>
+                                    <td><a href="Feedbacks.php?did=<?php echo htmlentities($result->fid);?>"
+                                            onclick="return confirm('Do you really want to remove from Feedbacks')">Delete
+                                        </a>
+                                    </td>
 
                                 </tr>
                                 <?php $cnt=$cnt+1;} }?>

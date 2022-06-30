@@ -1,35 +1,3 @@
-<?php
-session_start();
-error_reporting(0);
-include('includes/config.php');
-if(isset($_POST['submit1']))
-{
-$fname=$_POST['fname'];
-$email=$_POST['email'];	
-$mobile=$_POST['mobileno'];
-$subject=$_POST['subject'];	
-$description=$_POST['description'];
-$sql="INSERT INTO  tblenquiry(FullName,EmailId,MobileNumber,Subject,Description) VALUES(:fname,:email,:mobile,:subject,:description)";
-$query = $dbh->prepare($sql);
-$query->bindParam(':fname',$fname,PDO::PARAM_STR);
-$query->bindParam(':email',$email,PDO::PARAM_STR);
-$query->bindParam(':mobile',$mobile,PDO::PARAM_STR);
-$query->bindParam(':subject',$subject,PDO::PARAM_STR);
-$query->bindParam(':description',$description,PDO::PARAM_STR);
-$query->execute();
-$lastInsertId = $dbh->lastInsertId();
-if($lastInsertId)
-{
-$msg="Enquiry  Successfully submited";
-}
-else 
-{
-$error="Something went wrong. Please try again";
-}
-
-}
-
-?>
 <!DOCTYPE HTML>
 <html>
 
@@ -46,6 +14,9 @@ $error="Something went wrong. Please try again";
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/font-awesome.css" rel="stylesheet">
     <!-- Custom Theme files -->
     <script src="js/jquery-1.12.0.min.js"></script>
@@ -74,6 +45,13 @@ $error="Something went wrong. Please try again";
         -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
     }
+
+    .about-section {
+        padding: 50px;
+        text-align: center;
+        background-color: #474e5d;
+        color: white;
+    }
     </style>
 </head>
 
@@ -81,49 +59,30 @@ $error="Something went wrong. Please try again";
     <!-- top-header -->
     <div class="top-header">
         <?php include('includes/header.php');?>
-        <!-- <div class="banner-1 ">
-            <div class="container">
-                <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
-                    style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">EMS-Event Management
-                    System</h1>
-            </div>
-        </div> -->
-        <!--- /banner-1 ---->
-        <!--- privacy ---->
-        <div class="privacy">
-            <div class="container">
-                <?php 
-$pagetype=$_GET['type'];
-$sql = "SELECT type,detail from tblpages where type=:pagetype";
-$query = $dbh -> prepare($sql);
-$query->bindParam(':pagetype',$pagetype,PDO::PARAM_STR);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{		
 
-?>
+        <div class="w3-content w3-container w3-padding-64" id="contact">
+            <h3 class="w3-center">WHERE I WORK</h3>
+            <!-- <p class="w3-center"><em>I'd love your feedback!</em></p> -->
 
-
-                <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
-                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-                    <?php 	echo $_GET['type'] ?></h3>
-
-
-                <p>
-                    <?php 	echo $result->detail; ?>
-
-
-                </p>
-                <?php } }?>
-
-
-
+            <div class="w3-row w3-padding-32 w3-section">
+                <div class="w3-col m4 w3-container">
+                    <img src="images/t2.jpg" class="w3-image w3-round" style="width:100%">
+                </div>
+                <div class="w3-col m8 w3-panel">
+                    <div class="w3-large w3-margin-bottom">
+                        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
+                        Sri Lakshmi, Omkareshwar Temple Road, Chickpet, Madikeri, Coorg - 571201, Near Omkareshwara
+                        Temple<br>
+                        <i class="fa fa-whatsapp fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +91
+                        9448066599<br>
+                        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email:
+                        mail@mail.com<br>
+                    </div>
+                    <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+                </div>
             </div>
         </div>
+
         <!--- /privacy ---->
         <!--- footer-top ---->
         <!--- /footer-top ---->

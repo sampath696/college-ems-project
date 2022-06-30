@@ -75,12 +75,12 @@ mysqli_close($conn);
 
 ?>
 <?php
-//  echo "<script> location.href='../userfeedback.php'; </script>";
-//  exit;
-    $html = "<p>Your payment was successful</p>
-             <p>Payment ID: {$_POST['razorpay_payment_id']}</p>";
-             ?><br>
-<a href="../userfeedback.php">Give Feedback</a>
+$html = "Your payment was successful";
+ echo "<script> alert('$html'); </script>";
+ echo "<script> location.href='../userfeedback.php'; </script>";
+ exit;
+          ?>
+<!-- <a href="../userfeedback.php">Give Feedback</a> -->
 <?php
 }
 else

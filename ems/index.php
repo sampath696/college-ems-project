@@ -18,9 +18,11 @@ include('includes/config.php');
     <link href="css/style.css" rel='stylesheet' type='text/css' />
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <link href="css/font-awesome.css" rel="stylesheet">
     <!-- Custom Theme files -->
+
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!--animate-->
@@ -32,111 +34,30 @@ include('includes/config.php');
     <!--//end-animate-->
 </head>
 
-<body>
+<body class="banner">
     <?php include('includes/header.php');?>
-    <div class="banner">
-
-        <div class="">
-            <div class="">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="images/pk2.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
-                        </div>
-
-                        <div class="item">
-                            <img src="images/pk3.jpg" alt="Chicago" style="width:100%; height: 600px">
-                        </div>
-
-                        <div class="item">
-                            <img src="images/pk4.jpg" alt="New york" style="width:100%; height: 600px;">
-                        </div>
-                    </div>
-
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+    <div class="">
+        <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+            <img class="w3-image" src="images/events3.jpg" alt="Architecture" width="1500" height="800">
+            <div class="w3-display-middle w3-margin-top w3-center">
+                <h1 class="w3-xxlarge w3-text-white" style="margin-top:-250px;">
+                    <span class="w3-padding w3-black w3-opacity-min"><b>SWAGATH</b></span>
+                    <!-- <span class="w3-hide-small w3-text-light-grey"><b>SWAGATH</b></span>
+                    <span class="w3-padding w3-black w3-opacity-min"><b>Events</b></span> -->
+                    <span class="w3-hide-small w3-text-light-grey"><b>Events</b></span>
+                </h1>
             </div>
-        </div>
-
-
+        </header>
     </div>
 
+    <hr style="border: 1px solid black;">
 
-    <!--- rupes ---->
-    <!-- <div class="container">
-        <div class="rupes">
-            <div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s"
-                style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-                <div class="rup-left">
-                    <a href="offers.html"><i class="fa fa-usd"></i></a>
-                </div>
-                <div class="rup-rgt">
-                    <h3>UP TO USD. 50 OFF</h3>
-                    <h4><a href="offers.html">TRAVEL SMART</a></h4>
-
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s"
-                style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-                <div class="rup-left">
-                    <a href="offers.html"><i class="fa fa-h-square"></i></a>
-                </div>
-                <div class="rup-rgt">
-                    <h3>UP TO 70% OFF</h3>
-                    <h4><a href="offers.html">ON HOTELS ACROSS WORLD</a></h4>
-
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s"
-                style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-                <div class="rup-left">
-                    <a href="offers.html"><i class="fa fa-mobile"></i></a>
-                </div>
-                <div class="rup-rgt">
-                    <h3>FLAT USD. 50 OFF</h3>
-                    <h4><a href="offers.html">US APP OFFER</a></h4>
-
-                </div>
-                <div class="clearfix"></div>
-            </div>
-
-        </div>
-    </div> -->
-    <!--- /rupes ---->
-
-
-
-
-    <!---holiday---->
+    <h1 style="color:black; margin-top:-120px;">
+        <center>Packages</center>
+    </h1>
     <div class="container">
-        <div class="holiday">
 
-
-
-
-
-            <h3>Package List</h3>
-
-
-            <?php $sql = "SELECT * from tbltourpackages order by rand() limit 4";
+        <?php $sql = "SELECT * from tbltourpackages order by rand() limit 2";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -145,72 +66,81 @@ if($query->rowCount() > 0)
 {
 foreach($results as $result)
 {	?>
-            <div class="rom-btm">
-                <div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
-                    <img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>"
-                        class="img-responsive" alt="">
-                </div>
-                <div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
-                    <h4>Package Name: <?php echo htmlentities($result->PackageName);?></h4>
-                    <h6>Package Type : <?php echo htmlentities($result->PackageType);?></h6>
-                    <p><b>Package Location :</b> <?php echo htmlentities($result->PackageLocation);?></p>
-                    <p><b>Features</b> <?php echo htmlentities($result->PackageFetures);?></p>
-                </div>
-                <div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
-                    <h5>Rs. <?php echo htmlentities($result->PackagePrice);?></h5>
-                    <a href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId);?>"
-                        class="view">Details</a>
-                </div>
-                <div class="clearfix"></div>
+        <div class="" id="plans">
+            <div class="w3-third w3-margin-bottom" style="margin-left:130px;">
+                <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+                    <li class="w3-black w3-xlarge w3-padding-32" style="text-transform:capitalize;">
+                        <?php echo htmlentities($result->PackageName);?>
+                    </li>
+                    <img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>" height="200"
+                        width="350" alt="img">
+
+                    <li class="w3-padding-16"><?php echo htmlentities($result->PackageType);?></li>
+                    <li class="w3-padding-16"><?php echo htmlentities($result->PackageFetures);?></li>
+                    <h2 class="w3-wide">₹ <?php echo htmlentities($result->PackagePrice);?></h2>
+                    <span class="w3-opacity">Booking Amount</span>
+                    </li>
+                    <li class="w3-light-grey w3-padding-24">
+                        <a href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId);?>"
+                            class="w3-button w3-black w3-padding-large">View</a>
+                    </li>
+                </ul>
             </div>
-
-            <?php }} ?>
-
-
-            <div><a href="package-list.php" class="view">View More Packages</a></div>
         </div>
-        <div class="clearfix"></div>
+        <?php }} ?>
+    </div><br>
+    <center>
+        <a href="package-list.php" class="w3-button w3-black w3-padding-large">View All Packages
+        </a>
+    </center>
+    <br>
+    <hr style="border: 1px solid black;">
+    <!-- <img style="display:inline;" src="images/about.svg" alt="" align="left"> -->
+    <div class="w3 w3-container w3-padding-64" id="about">
+        <h3 class="w3-center">ABOUT OUR ORGANISATION</h3>
+        <p class="w3-center"><em><b>Event Management</b></em></p><br>
+        <p style="font-size:17px;" >Established in the year 2010, Swagath Decorators in Madikeri, Coorg is a top player in the category Stage
+            Decorators in the Coorg. This well-known establishment acts as a one-stop destination servicing
+            customers both local and from other parts of Coorg. Over the course of its journey, this business has
+            established a firm foothold in it’s industry. The belief that customer satisfaction is as important as
+            their products and services, have helped this establishment garner a vast base of customers, which
+            continues to grow by the day. This business employs individuals that are dedicated towards their
+            respective roles and put in a lot of effort to achieve the common vision and larger goals of the
+            company. In the near future, this business aims to expand its line of products and services and cater to
+            a larger client base. In Coorg, this establishment occupies a prominent location in Madikeri. It is an
+            effortless task in commuting to this establishment as there are various modes of transport readily
+            available. It is at Omkareshwar Temple Road,Chickpet, Near Omkareshwara Temple, which makes it easy for
+            first-time visitors in locating this establishment. It is known to provide top service in the following
+            categories: Wedding Decorators, Decorators, Mandap Decorators, Birthday Party Decorators, Flower
+            Decorators, Interior Decorators, Balloon Decorators, Wedding Planners.</p>
+    </div><br>
+    <hr style="border: 1px solid black;">
+
+    <div class="w3-content w3-container w3-padding-64" id="contact">
+        <h3 class="w3-center">OUR PLACE</h3>
+        <!-- <p class="w3-center"><em>I'd love your feedback!</em></p> -->
+
+        <div class="w3-row w3-padding-32 w3-section">
+            <div class="w3-col m4 w3-container">
+                <img src="images/t2.jpg" class="w3-image w3-round" style="width:100%">
+            </div>
+            <div class="w3-col m8 w3-panel">
+                <div class="w3-large w3-margin-bottom">
+                    <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
+                    Sri Lakshmi, Omkareshwar Temple Road, Chickpet, Madikeri, Coorg - 571201, Near Omkareshwara
+                    Temple<br>
+                    <i class="fa fa-whatsapp fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +91
+                    9448066599<br>
+                    <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email:
+                    mail@mail.com<br>
+                </div>
+                <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+            </div>
+        </div>
     </div>
 
 
-
-    <!--- routes ---->
-    <!-- <div class="routes">
-        <div class="container">
-            <div class="col-md-4 routes-left wow fadeInRight animated" data-wow-delay=".5s">
-                <div class="rou-left">
-                    <a href="#"><i class="glyphicon glyphicon-list-alt"></i></a>
-                </div>
-                <div class="rou-rgt wow fadeInDown animated" data-wow-delay=".5s">
-                    <h3>80000</h3>
-                    <p>Enquiries</p>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="col-md-4 routes-left">
-                <div class="rou-left">
-                    <a href="#"><i class="fa fa-user"></i></a>
-                </div>
-                <div class="rou-rgt">
-                    <h3>1900</h3>
-                    <p>Regestered users</p>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="col-md-4 routes-left wow fadeInRight animated" data-wow-delay=".5s">
-                <div class="rou-left">
-                    <a href="#"><i class="fa fa-ticket"></i></a>
-                </div>
-                <div class="rou-rgt">
-                    <h3>7,00,00,000+</h3>
-                    <p>Booking</p>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div> -->
-
+    <br><br><br>
     <?php include('includes/footer.php');?>
     <!-- signup -->
     <?php include('includes/signup.php');?>

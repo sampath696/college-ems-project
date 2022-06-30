@@ -18,6 +18,7 @@ include('includes/config.php');
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="css/font-awesome.css" rel="stylesheet">
     <!-- Custom Theme files -->
     <script src="js/jquery-1.12.0.min.js"></script>
@@ -29,67 +30,81 @@ include('includes/config.php');
     new WOW().init();
     </script>
     <!--//end-animate-->
+    <style>
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .newspaper {
+        column-gap: 50px;
+    }
+    </style>
 </head>
 
 <body>
     <?php include('includes/header.php');?>
-    <!--- banner ---->
-    <div class="banner-3">
-        <div class="container">
-            <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
-                style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> EMS- Package List</h1>
-        </div>
-    </div>
-    <!--- /banner ---->
-    <!--- rooms ---->
-    <div class="rooms">
-        <div class="container">
 
-            <div class="room-bottom">
-                <h3>Package List</h3>
-
-
-                <?php $sql = "SELECT * from tbltourpackages";
+    <br>
+    <div class="container">
+        <h1>
+            <center>Packages</center>
+        </h1><br>
+        <?php $sql = "SELECT * from tbltourpackages";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
 if($query->rowCount() > 0)
 {
-foreach($results as $result)
-{	?>
-                <div class="rom-btm">
-                    <div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
-                        <img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>"
-                            class="img-responsive" alt="">
-                    </div>
-                    <div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
-                        <h4>Package Name: <?php echo htmlentities($result->PackageName);?></h4>
-                        <h6>Package Type : <?php echo htmlentities($result->PackageType);?></h6>
-                        <p><b>Package Location :</b> <?php echo htmlentities($result->PackageLocation);?></p>
-                        <p><b>Features</b> <?php echo htmlentities($result->PackageFetures);?></p>
-                    </div>
-                    <div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
-                        <h5>Rs. <?php echo htmlentities($result->PackagePrice);?></h5>
+    foreach($results as $result)
+    {	
+        ?>
+        <div class="" style="width:100%" id="plans">
+            <div class="w3-third w3-margin-bottom" style="margin-left:130px;">
+
+                <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+                    <li class="w3-black w3-xlarge w3-padding-32" style="text-transform:capitalize;" >
+
+                        <?php echo htmlentities($result->PackageName);?>
+                    </li>
+                    <img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>" height="200"
+                        width="350" alt="img">
+
+                    <li class="w3-padding-16"><?php echo htmlentities($result->PackageType);?></li>
+                    <li class="w3-padding-16"><?php echo htmlentities($result->PackageFetures);?></li>
+                    <h2 class="w3-wide">₹ <?php echo htmlentities($result->PackagePrice);?></h2>
+                    <span class="w3-opacity">Booking Amount</span>
+                    </li>
+                    <li class="w3-light-grey w3-padding-24">
                         <a href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId);?>"
-                            class="view">Details</a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
+                            class="w3-button w3-black w3-padding-large">View</a>
+                    </li>
 
-                <?php }} ?>
-
-
-
+                </ul>
             </div>
         </div>
+        <?php }} ?>
     </div>
+
+
+
     <!--- /rooms ---->
 
     <!--- /footer-top ---->
-    <?php include('includes/footer.php');?>
     <!-- signup -->
+
+    <?php include('includes/footer.php');?>
     <?php include('includes/signup.php');?>
+
     <!-- //signu -->
     <!-- signin -->
     <?php include('includes/signin.php');?>
