@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
 {
 $pimage=$_FILES["packageimage"]["name"];
 move_uploaded_file($_FILES["packageimage"]["tmp_name"],"pacakgeimages/".$_FILES["packageimage"]["name"]);
-$sql="INSERT INTO barcounter(images) VALUES(:pimage)";
+$sql="INSERT INTO bgsofa(images) VALUES(:pimage)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':pimage',$pimage,PDO::PARAM_STR);
 $query->execute();
@@ -89,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--heder end here-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>insert bar counter images
+                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>insert Bride-Groom sofa images
                 </li>
             </ol>
             <!--grid-->
@@ -97,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <!---->
                 <div class="grid-form1">
-                    <h3>Insert Bar Counter images</h3>
+                    <h3>Insert Bride-Groom sofa images</h3>
                     <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
                     </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
@@ -105,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="tab-pane active" id="horizontal-form">
                             <form class="form-horizontal" name="package" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Bar Counter Image</label>
+                                    <label for="focusedinput" class="col-sm-2 control-label">Bride-Groom sofa Image</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="packageimage" id="packageimage" required>
                                     </div>
@@ -119,9 +119,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                 </div>
 
+
+
+
+
                         </div>
 
                         </form>
+
+
+
 
 
                         <div class="panel-footer">

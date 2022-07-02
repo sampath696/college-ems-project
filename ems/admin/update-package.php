@@ -156,8 +156,8 @@ foreach($results as $result)
                                     <label for="focusedinput" class="col-sm-2 control-label">Package Price in
                                         USD</label>
                                     <div class="col-sm-8">
-                                        <input type="text" maxlength="4" class="form-control1" name="packageprice" id="packageprice"
-                                            placeholder=" Package Price is Rs"
+                                        <input type="text" maxlength="4" class="form-control1" name="packageprice"
+                                            id="packageprice" placeholder=" Package Price is Rs"
                                             value="<?php echo htmlentities($result->PackagePrice);?>" required>
                                     </div>
                                 </div>
@@ -200,7 +200,8 @@ foreach($results as $result)
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Background stage Image</label>
+                                    <label for="focusedinput" class="col-sm-2 control-label">Background stage
+                                        Image</label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->BackgroundStageImage);?>"
                                             width="200">&nbsp;&nbsp;&nbsp;<a
@@ -227,7 +228,38 @@ foreach($results as $result)
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">barcounter Image</label>
+                                    <label for="focusedinput" class="col-sm-2 control-label">Bride-Groom Chair
+                                        Image</label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->bgchair);?>"
+                                            width="200">&nbsp;&nbsp;&nbsp;<a
+                                            href="change-image.php?imgid=<?php echo htmlentities($result->PackageId);?>">Change
+                                            Image</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">Bride-Groom Sofa
+                                        Image</label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->bgsofa);?>"
+                                            width="200">&nbsp;&nbsp;&nbsp;<a
+                                            href="change-image.php?imgid=<?php echo htmlentities($result->PackageId);?>">Change
+                                            Image</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">Tables
+                                        Image</label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->tables);?>"
+                                            width="200">&nbsp;&nbsp;&nbsp;<a
+                                            href="change-image.php?imgid=<?php echo htmlentities($result->PackageId);?>">Change
+                                            Image</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">barcounter
+                                        Image</label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->BarCounter);?>"
                                             width="200">&nbsp;&nbsp;&nbsp;<a
@@ -237,7 +269,8 @@ foreach($results as $result)
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Last Updation Date</label>
+                                    <label for="focusedinput" class="col-sm-2 control-label">Last Updation
+                                        Date</label>
                                     <div class="col-sm-8">
                                         <?php echo htmlentities($result->UpdationDate);?>
                                     </div>

@@ -62,7 +62,7 @@
 
 
         <div class="w3-content w3-container w3-padding-64" id="about">
-            <h3 class="w3-center">ABOUT ME</h3>
+            <h3 class="w3-center">ABOUT US</h3>
             <p class="w3-center"><em>I am Event Manager</em></p>
             <p>Established in the year 2010, Swagath Decorators in Madikeri, Coorg is a top player in the category Stage
                 Decorators in the Coorg. This well-known establishment acts as a one-stop destination servicing

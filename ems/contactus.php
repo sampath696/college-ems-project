@@ -61,24 +61,24 @@
         <?php include('includes/header.php');?>
 
         <div class="w3-content w3-container w3-padding-64" id="contact">
-            <h3 class="w3-center">WHERE I WORK</h3>
+            <h3 class="w3-center">CONTACT US</h3>
             <!-- <p class="w3-center"><em>I'd love your feedback!</em></p> -->
 
             <div class="w3-row w3-padding-32 w3-section">
                 <div class="w3-col m4 w3-container">
-                    <img src="images/t2.jpg" class="w3-image w3-round" style="width:100%">
+                    <img src="images/logo.jpeg" class="w3-image w3-round" style="width:100%">
                 </div>
                 <div class="w3-col m8 w3-panel">
                     <div class="w3-large w3-margin-bottom">
-                        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
-                        Sri Lakshmi, Omkareshwar Temple Road, Chickpet, Madikeri, Coorg - 571201, Near Omkareshwara
-                        Temple<br>
+                        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Location:
+                        Sri Lakshmi complex,<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Omkareshwar Temple
+                        Road, Chickpet, Madikeri,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kodagu - 571201<br>
                         <i class="fa fa-whatsapp fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +91
                         9448066599<br>
                         <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email:
-                        mail@mail.com<br>
+                        sunnyjoelpaulose@mail.com<br>
                     </div>
-                    <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+                    <!-- <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p> -->
                 </div>
             </div>
         </div>

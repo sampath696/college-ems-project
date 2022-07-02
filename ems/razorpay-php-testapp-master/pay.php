@@ -110,6 +110,20 @@ $json = json_encode($data);
 
 ?>
 
+<style>
+.razorpay-payment-button {
+    color: white;
+    background-color: black;
+}
+</style>
+
+<script>
+// $(document).ready(function() {
+//     $(".razorpay-payment-button").hide();
+// });
+
+</script>
+
 <form action="verify.php" method="POST">
     <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="<?php echo $data['key']?>"
         data-amount="<?php echo $data['amount']?>" data-currency="INR" data-name="<?php echo $data['name']?>"

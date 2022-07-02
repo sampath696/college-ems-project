@@ -28,8 +28,8 @@ $rowcnt22 = $query->rowCount();
             style="font-size:25px; color:white;"> </i> <?php echo htmlentities($_SESSION['login']);?></a></li>
         </ul>
         <ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s" style="margin-right:70px;">
-            <li class="sigi" style="margin:0px 0px 0px 30px"><a href="change-password.php"><i class="fa fa-key"
-                        style="font-size:25px; color:white;" aria-hidden="true"></i> Change Password</a></li>
+            <!-- <li class="sigi" style="margin:0px 0px 0px 30px"><a href="change-password.php"><i class="fa fa-key"
+                        style="font-size:25px; color:white;" aria-hidden="true"></i> Change Password</a></li> -->
             <li class="sigi" style="margin:0px 0px 0px 30px"><a href="issuetickets.php"><i class="fa fa-question-circle"
                         style="font-size:25px; color:white;"></i> View F.A.Q</a></li>
             <li class="sigi" style="margin:0px 20px 0px 30px"><a href="cart.php"><i class="fa fa-shopping-cart"
@@ -99,9 +99,10 @@ $rowcnt22 = $query->rowCount();
                     </button>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
+                
                 <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                     <nav class="cl-effect-1">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" style="display:block;">
                             <!-- <li><a href="index.php">Home</a></li> -->
                             <li><a href="index.php"><i class="fa fa-home" style="font-size:18px; color:white;"></i>
                                     Home</a></li>
@@ -122,11 +123,15 @@ $rowcnt22 = $query->rowCount();
                             <!-- <li><a href="page.php?type=terms">Terms of Use</a></li> -->
                             <li><a href="contactus.php"><i class="fa fa-phone" style="font-size:18px; color:white;"></i>
                                     Contact Us</a></li>
+                            <li><a href="gallery.php"><i class="fa fa-picture-o" style="font-size:18px; color:white;"></i>
+                                    Gallery</a></li>
                             <div class="clearfix"></div>
 
                         </ul>
                     </nav>
-                </div><!-- /.navbar-collapse -->
+                </div>
+                
+                <!-- /.navbar-collapse -->
             </nav>
         </div>
 

@@ -79,8 +79,8 @@ if($query->rowCount() > 0)
                     <img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>" height="200"
                         width="350" alt="img">
 
-                    <li class="w3-padding-16"><?php echo htmlentities($result->PackageType);?></li>
-                    <li class="w3-padding-16"><?php echo htmlentities($result->PackageFetures);?></li>
+                    <!-- <li class="w3-padding-16"><?php echo htmlentities($result->PackageType);?></li> -->
+                    <li class="w3-padding-16"><?php echo htmlentities($result->PackageDetails);?></li>
                     <h2 class="w3-wide">₹ <?php echo htmlentities($result->PackagePrice);?></h2>
                     <span class="w3-opacity">Booking Amount</span>
                     </li>

@@ -200,6 +200,21 @@ $error="Something went wrong. Please try again";
             console.log("bckstg")
             $(".entrance").toggle();
         });
+        $("#hide6").click(function(e) {
+            e.preventDefault();
+            console.log("barcounter")
+            $(".bgchair").toggle();
+        });
+        $("#hide7").click(function(e) {
+            e.preventDefault();
+            console.log("barcounter")
+            $(".bgsofa").toggle();
+        });
+        $("#hide8").click(function(e) {
+            e.preventDefault();
+            console.log("barcounter")
+            $(".tables").toggle();
+        });
         $("#hide5").click(function(e) {
             e.preventDefault();
             console.log("barcounter")
@@ -238,18 +253,18 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {	
         ?>
-        <h1>
-            <center>EMS-Package Details</center>
-        </h1>
+            <h1>
+                <center>EMS-Package Details</center>
+            </h1><br>
 
-            <div class="sidenav">
+            <!-- <div class="sidenav">
                 <a href="#date">select date</a><br>
                 <a href="#decr">decor items</a><br>
                 <a href="#welcome">select welcome sign</a><br>
                 <a href="#bck">select background stage</a><br>
                 <a href="#entrance">select entrance image</a><br>
                 <a href="#chair">select chairs</a><br>
-            </div>
+            </div> -->
             <form name="book" method="post">
                 <div class="selectroom_top" id="date">
                     <div class="col-md-4 selectroom_left wow fadeInLeft animated" data-wow-delay=".5s">
@@ -259,9 +274,9 @@ foreach($results as $result)
                     <div class="col-md-8 selectroom_right" data-wow-delay=".5s">
                         <h2><?php echo htmlentities($result->PackageName);?></h2><br>
                         <!-- <p class="dow">#PKG-<?php echo htmlentities($result->PackageId);?></p> -->
-                        <p><b>Package Type :</b> <?php echo htmlentities($result->PackageType);?></p><br>
+                        <!-- <p><b>Package Type :</b> <?php echo htmlentities($result->PackageType);?></p><br> -->
                         <p><b>Package Location :</b> <?php echo htmlentities($result->PackageLocation);?></p><br>
-                        <p><b>Features</b> <?php echo htmlentities($result->PackageFetures);?></p>
+                        <p><b>Details :</b> <?php echo htmlentities($result->PackageDetails);?></p>
                         <div class="ban-bottom">
                             <div class="bnr-right">
                                 Select Your Event Date: <input type="date" id="date-picker" name="fromdate" required>
@@ -279,43 +294,747 @@ foreach($results as $result)
                             </div>
                         </div>
                     </div>
-                    <h3>Package Details</h3>
-                    <p style="padding-top: 1%"><?php echo htmlentities($result->PackageDetails);?> </p>
+                    <!-- <h3>Package Details</h3>
+                    <p style="padding-top: 1%"><?php echo htmlentities($result->PackageDetails);?> </p> -->
                     <div class="clearfix"></div>
                 </div>
 
+                <div class="selectroom_top">
+                    <h2 id="decr">Select Images</h2>
+                    <hr>
+
+                    <!-- welcome sign -->
+                    <br><br><br>
+
+                    <?php 
+$pid=intval($_GET['pkgid']);
+$sql = "SELECT WelcomeImage from tbltourpackages where PackageId=$pid";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+
+                    <?php
+foreach($results1 as $result1)
+{
+    
+    if($result1->WelcomeImage == "" ){
+        echo "";
+    }else{	?>
+                    <div>
+
+                        <h1 id="welcome"> Welcome Sign</h1>
+                        <img style="width: 300px; height:160px; margin: 0px 20px 20px 20px; "
+                            src="admin/pacakgeimages/<?php echo htmlentities($result1->WelcomeImage);?>"
+                            class="img_item" alt="">
+                        <input type="checkbox" id="checkbox" checked
+                            style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
+                            name="techno[]" value="<?php echo htmlentities($result1->WelcomeImage);?>">
+
+
+                        <?php
+}}}
+
+if($result1->WelcomeImage == "" ){
+    echo "";
+}else{
+?>
+
+
+                        <button id="hide2" style="color: white;background-color:black; width:50%; height:50px;">change
+                            Welcome Sign
+                            images </button>
+
+
+                        <div style="display: none;" class="welcome">
+                            <?php 
+$sql = "SELECT images from welcomeimage ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+                            <?php
+foreach($results1 as $result1)
+{	?>
+
+                            <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
+                                src="admin/pacakgeimages/<?php echo htmlentities($result1->images);?>" class="img_item"
+                                alt="">
+                            <input type="checkbox" id="checkbox"
+                                style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
+                                name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+
+
+                            <?php
+}}?>
+
+
+
+
+
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <hr style="border: 1px solid black;">
+                    <?php } ?>
+                    <!-- background image -->
+
+
+                    <?php 
+$pid=intval($_GET['pkgid']);
+$sql = "SELECT BackgroundStageImage from tbltourpackages where PackageId=$pid";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+
+foreach($results1 as $result1)
+{	
+    if($result1->BackgroundStageImage == "" ){
+        echo "";
+    }else{
+    
+    ?>
+                    <div>
+
+                        <h1 id="bck"> Background Stage</h1>
+
+                        <img style="width: 300px; margin: 0px 20px 20px 20px; "
+                            src="admin/pacakgeimages/<?php echo htmlentities($result1->BackgroundStageImage);?>"
+                            class="img_item" alt="">
+                        <input type="checkbox" id="checkbox" checked
+                            style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
+                            name="techno[]" value="<?php echo htmlentities($result1->BackgroundStageImage);?>">
+
+
+                        <?php
+}}}
+
+if($result1->BackgroundStageImage == "" ){
+        echo "";
+    }else{
+    ?>
+                        <button id="hide3" style="color: white;background-color:black; width:50%; height:50px;">change
+                            Background Stage
+                            images </button>
+
+
+                        <div style="display: none;" class="bckstg">
+                            <?php 
+$sql = "SELECT images from bckstageimage ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+                            <?php
+foreach($results1 as $result1)
+{	?>
+
+                            <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
+                                src="admin/pacakgeimages/<?php echo htmlentities($result1->images);?>" class="img_item"
+                                alt="">
+                            <input type="checkbox" id="checkbox"
+                                style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
+                                name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+
+
+                            <?php
+}}?>
+
+
+
+
+
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <hr style="border: 1px solid black;">
+                    <?php }?>
+
+                    <!-- entrance image -->
+
+
+                    <?php 
+$pid=intval($_GET['pkgid']);
+$sql = "SELECT EntranceImage from tbltourpackages where PackageId=$pid";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+
+                    <?php
+foreach($results1 as $result1)
+{
+    if($result1->EntranceImage == "" ){
+        echo "";
+    }else{
+    
+    ?>
+                    <div>
+
+                        <h1 id="entrance"> Welcome Gate</h1>
+
+                        <img style="width: 300px; margin: 0px 20px 20px 20px; "
+                            src="admin/pacakgeimages/<?php echo htmlentities($result1->EntranceImage);?>"
+                            class="img_item" alt="">
+                        <input type="checkbox" id="checkbox" checked
+                            style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
+                            name="techno[]" value="<?php echo htmlentities($result1->EntranceImage);?>">
+
+
+                        <?php
+}}}
+if($result1->EntranceImage == "" ){
+    echo "";
+}else{
+?>
+
+
+                        <button id="hide4" style="color: white;background-color:black; width:50%; height:50px;">change
+                            Entrance
+                            images </button>
+
+
+                        <div style="display: none;" class="entrance">
+                            <?php 
+$sql = "SELECT images from entranceimage ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+                            <?php
+foreach($results1 as $result1)
+{	?>
+
+                            <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
+                                src="admin/pacakgeimages/<?php echo htmlentities($result1->images);?>" class="img_item"
+                                alt="">
+                            <input type="checkbox" id="checkbox"
+                                style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
+                                name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+
+
+                            <?php
+}}?>
+
+
+
+
+
+                        </div>
+                    </div>
+
+                    <br>
+                    <hr style="border: 1px solid black;">
+                    <?php } ?>
+
+
+
+                    <!-- Bride Groom Chair part -->
+
+                    <?php 
+$pid=intval($_GET['pkgid']);
+$sql = "SELECT bgchair from tbltourpackages where PackageId=$pid";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+
+                    <?php
+foreach($results1 as $result1)
+{
+    if($result1->bgchair == "" ){
+        echo "";
+    }else{
+    	?>
+                    <div>
+
+                        <h1 id="chair">Bride-Groom Chairs</h1>
+
+                        <img style="width: 300px; margin: 0px 20px 20px 20px; "
+                            src="admin/pacakgeimages/<?php echo htmlentities($result1->bgchair );?>" class="img_item"
+                            alt="">
+                        <input type="checkbox" id="checkbox" checked
+                            style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
+                            name="techno[]" value="<?php echo htmlentities($result1->bgchair);?>">
+
+
+                        <?php
+}}}
+
+
+if($result1->bgchair == "" ){
+    echo "";
+}else{
+    ?>
+
+
+                        <button id="hide6" style="color: white;background-color:black; width:50%; height:50px;">change
+                            Bride-Groom Chair
+                            images </button>
+
+
+                        <div style="display: none;" class="bgchair">
+                            <?php 
+$sql = "SELECT images from bgchair ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+                            <?php
+foreach($results1 as $result1)
+{	?>
+
+                            <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
+                                src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>" class="img_item"
+                                alt="">
+                            <input type="checkbox" id="checkbox"
+                                style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
+                                name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+
+
+                            <?php
+}}?>
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+
+
+                    <hr style="border: 1px solid black;">
+                    <?php } ?>
+
+
+                    <!-- bride groom sofa images part -->
+
+
+
+                    <?php 
+$pid=intval($_GET['pkgid']);
+$sql = "SELECT bgsofa from tbltourpackages where PackageId=$pid";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+
+                    <?php
+foreach($results1 as $result1)
+{
+    if($result1->bgsofa == "" ){
+        echo "";
+    }else{
+    	?>
+                    <div>
+
+                        <h1 id="chair">Bride-Groom Sofa</h1>
+
+                        <img style="width: 300px; margin: 0px 20px 20px 20px; "
+                            src="admin/pacakgeimages/<?php echo htmlentities($result1->bgsofa );?>" class="img_item"
+                            alt="">
+                        <input type="checkbox" id="checkbox" checked
+                            style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
+                            name="techno[]" value="<?php echo htmlentities($result1->bgsofa);?>">
+
+
+                        <?php
+}}}
+
+
+if($result1->bgsofa == "" ){
+    echo "";
+}else{
+    ?>
+
+
+                        <button id="hide7" style="color: white;background-color:black; width:50%; height:50px;">change
+                            Bride-Groom sofa
+                            images </button>
+
+
+                        <div style="display: none;" class="bgsofa">
+                            <?php 
+$sql = "SELECT images from bgsofa ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+                            <?php
+foreach($results1 as $result1)
+{	?>
+
+                            <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
+                                src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>" class="img_item"
+                                alt="">
+                            <input type="checkbox" id="checkbox"
+                                style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
+                                name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+
+
+                            <?php
+}}?>
+
+
+
+
+
+                        </div>
+                    </div>
+
+                    <hr style="border: 1px solid black;">
+                    <?php } ?>
+
+
+                    <!-- chair images part -->
+                    <?php 
+$pid=intval($_GET['pkgid']);
+$sql = "SELECT ChairImage from tbltourpackages where PackageId=$pid";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+
+                    <?php
+foreach($results1 as $result1)
+{
+    if($result1->ChairImage == "" ){
+        echo "";
+    }else{
+    	?>
+                    <div>
+                        <h1 id="chair"> Chairs</h1>
+                        <table class="table table-dark">
+                            <tbody>
+                                <input type="hidden" checked name="techno2[]" value="No of chairs:">
+                                <tr>
+                                    <th>No Of Chairs: </th>
+                                    <td><input type="number" checked name="techno2[]" value="0">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <img style="width: 300px; margin: 0px 20px 20px 20px; "
+                            src="admin/pacakgeimages/<?php echo htmlentities($result1->ChairImage );?>" class="img_item"
+                            alt="">
+                        <input type="checkbox" id="checkbox" checked
+                            style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
+                            name="techno[]" value="<?php echo htmlentities($result1->ChairImage);?>">
+
+
+
+                        <?php
+}}}
+
+
+if($result1->ChairImage == "" ){
+    echo "";
+}else{
+    ?>
+
+
+                        <button id="hide" style="color: white;background-color:black; width:50%; height:50px;">change
+                            Chair
+                            images </button>
+
+
+                        <div style="display: none;" class="chrimg">
+                            <?php 
+$sql = "SELECT images from chairimgs ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+                            <?php
+foreach($results1 as $result1)
+{	?>
+
+                            <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
+                                src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>" class="img_item"
+                                alt="">
+                            <input type="checkbox" id="checkbox"
+                                style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
+                                name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+
+
+                            <?php
+}}?>
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+
+
+                    <hr style="border: 1px solid black;">
+                    <?php } ?>
+
+
+
+
+                    <!-- tables image part -->
+
+
+
+                    <?php 
+$pid=intval($_GET['pkgid']);
+$sql = "SELECT tables from tbltourpackages where PackageId=$pid";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+
+                    <?php
+foreach($results1 as $result1)
+{
+    if($result1->tables == "" ){
+        echo "";
+    }else{
+    	?>
+                    <div>
+
+                        <h1 id="chair">Tables</h1>
+                        <table class="table table-dark">
+                            <tbody>
+                                <input type="hidden" checked name="techno2[]" value="No of tables:">
+                                <tr>
+                                    <th>No Of Table: </th>
+                                    <td><input type="number" checked name="techno2[]" value="0">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <img style="width: 300px; margin: 0px 20px 20px 20px; "
+                            src="admin/pacakgeimages/<?php echo htmlentities($result1->tables );?>" class="img_item"
+                            alt="">
+                        <input type="checkbox" id="checkbox" checked
+                            style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
+                            name="techno[]" value="<?php echo htmlentities($result1->tables);?>">
+
+
+                        <?php
+}}}
+
+
+if($result1->tables == "" ){
+    echo "";
+}else{
+    ?>
+
+
+                        <button id="hide8" style="color: white;background-color:black; width:50%; height:50px;">change
+                            Tables images </button>
+
+
+                        <div style="display: none;" class="tables">
+                            <?php 
+$sql = "SELECT images from tables ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+                            <?php
+foreach($results1 as $result1)
+{	?>
+
+                            <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
+                                src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>" class="img_item"
+                                alt="">
+                            <input type="checkbox" id="checkbox"
+                                style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
+                                name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+
+
+                            <?php
+}}?>
+
+
+
+
+
+                        </div>
+                    </div>
+
+                    <hr style="border: 1px solid black;">
+                    <?php } ?>
+
+                    <?php 
+$pid=intval($_GET['pkgid']);
+$sql = "SELECT BarCounter from tbltourpackages where PackageId=$pid";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+
+                    <?php
+foreach($results1 as $result1)
+{
+    if($result1->BarCounter == "" ){
+        echo "";
+    }else{
+    	?>
+                    <div>
+
+                        <h1 id="chair"> Bar Counter</h1>
+
+                        <img style="width: 300px; margin: 0px 20px 20px 20px; "
+                            src="admin/pacakgeimages/<?php echo htmlentities($result1->BarCounter );?>" class="img_item"
+                            alt="">
+                        <input type="checkbox" id="checkbox" checked
+                            style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
+                            name="techno[]" value="<?php echo htmlentities($result1->BarCounter);?>">
+
+
+                        <?php
+}}}
+
+
+if($result1->BarCounter == "" ){
+    echo "";
+}else{
+    ?>
+
+
+                        <button id="hide5" style="color: white;background-color:black; width:50%; height:50px;">change
+                            Bar Counter
+                            images </button>
+
+
+                        <div style="display: none;" class="barcounter">
+                            <?php 
+$sql = "SELECT images from barcounter ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+                            <?php
+foreach($results1 as $result1)
+{	?>
+
+                            <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
+                                src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>" class="img_item"
+                                alt="">
+                            <input type="checkbox" id="checkbox"
+                                style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
+                                name="techno[]" value="<?php echo htmlentities($result1->images);?>">
+
+
+                            <?php
+}}?>
+
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+
+
 
                 <div class="selectroom_top">
+                    <h1>Decorative Items</h1>
+
+                    <?php 
+$sql = "SELECT images from hangdecor ";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results1=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+?>
+
+                    <?php
+foreach($results1 as $result1)
+{	?>
+
+                    <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
+                        src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>" class="img_item" alt="">
+                    <input type="checkbox" id="checkbox"
+                        style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;" name="techno[]"
+                        value="<?php echo htmlentities($result1->images);?>">
 
 
+                    <?php
+}}?>
 
+                </div>
 
-                    <h2 id="decr">Event Decor Common Items</h2>
-
-                    <br><br><br>
-                    <table class="table table-dark">
-                        <thead class="">
-                            <tr>
-                                <td colspan="2">Event Items:</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <input type="hidden" checked name="techno2[]" value="No of chairs:">
-                            <tr>
-                                <td>No Of Chairs</td>
-                                <td><input type="number" checked name="techno2[]" value="0">
-                                </td>
-                            </tr>
-                            <input type="hidden" checked name="techno2[]" value="No of tables:">
-                            <tr>
-                                <td>No Of Table</td>
-                                <td><input type="number" checked name="techno2[]" value="0">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-
+                <div class="selectroom_top">
+                    <h1>Common Required items for event</h1><br><br>
                     <div class="row">
                         <div class="column">
                             <h3>Sounds-Dj</h3>
@@ -350,501 +1069,40 @@ foreach($results as $result)
                             <img src="admin/pacakgeimages/cater.jpg" alt="Mountains" style="width:100%">
                             <input type="checkbox" id="checkbox"
                                 style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -30px;"
-                                name="techno2[]" value="catering selected">
+                                name="techno2[]" value="catering required">
                         </div>
-                    </div>
-
-
-                    <br><br><br><br><br><br>
-                    <!-- <button id="clck"> <img src="images/1.jpg" widht=200 height=100 alt="img"> </button> -->
-
-                    <div class="selectroom-info animated wow fadeInUp animated" data-wow-duration="1200ms"
-                        data-wow-delay="500ms"
-                        style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
-
-
-
-
-
-
-
-                        <hr style="border: 1px solid black;">
-
-                        <!-- welcome sign -->
-
-
-
-                        <?php 
-$pid=intval($_GET['pkgid']);
-$sql = "SELECT WelcomeImage from tbltourpackages where PackageId=$pid";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-?>
-
-
-                        <?php
-foreach($results1 as $result1)
-{
-    
-    if($result1->WelcomeImage == "" ){
-        echo "";
-    }else{	?>
-                        <div>
-
-                            <h1 id="welcome">Selected Welcome Sign</h1>
-                            <img style="width: 300px; height:300px; margin: 0px 20px 20px 20px; "
-                                src="admin/pacakgeimages/<?php echo htmlentities($result1->WelcomeImage);?>"
-                                class="img_item" alt="">
-                            <input type="checkbox" id="checkbox" checked
-                                style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
-                                name="techno[]" value="<?php echo htmlentities($result1->WelcomeImage);?>">
-
-
-                            <?php
-}}}
-
-if($result1->WelcomeImage == "" ){
-    echo "";
-}else{
-?>
-
-
-                            <button id="hide2"
-                                style="color: white;background-color:black; width:50%; height:50px;">change
-                                Welcome Sign
-                                images </button>
-
-
-                            <div style="display: none;" class="welcome">
-                                <?php 
-$sql = "SELECT images from welcomeimage ";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-?>
-
-                                <?php
-foreach($results1 as $result1)
-{	?>
-
-                                <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
-                                    src="admin/pacakgeimages/<?php echo htmlentities($result1->images);?>"
-                                    class="img_item" alt="">
-                                <input type="checkbox" id="checkbox"
-                                    style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
-                                    name="techno[]" value="<?php echo htmlentities($result1->images);?>">
-
-
-                                <?php
-}}?>
-
-
-
-
-
-                            </div>
+                        <div class="column">
+                            <h3>Carpets</h3>
+                            <img src="admin/pacakgeimages/cater.jpg" alt="Mountains" style="width:100%">
+                            <input type="checkbox" id="checkbox"
+                                style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -30px;"
+                                name="techno2[]" value="carpets required">
                         </div>
-
-                        <br>
-
-                        <hr style="border: 1px solid black;">
-                        <?php } ?>
-                        <!-- background image -->
-
-
-                        <?php 
-$pid=intval($_GET['pkgid']);
-$sql = "SELECT BackgroundStageImage from tbltourpackages where PackageId=$pid";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-
-foreach($results1 as $result1)
-{	
-    if($result1->BackgroundStageImage == "" ){
-        echo "";
-    }else{
-    
-    ?>
-                        <div>
-
-                            <h1 id="bck">Selected Background Image</h1>
-
-                            <img style="width: 300px; margin: 0px 20px 20px 20px; "
-                                src="admin/pacakgeimages/<?php echo htmlentities($result1->BackgroundStageImage);?>"
-                                class="img_item" alt="">
-                            <input type="checkbox" id="checkbox" checked
-                                style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
-                                name="techno[]" value="<?php echo htmlentities($result1->BackgroundStageImage);?>">
-
-
-                            <?php
-}}}
-
-if($result1->BackgroundStageImage == "" ){
-        echo "";
-    }else{
-    ?>
-                            <button id="hide3"
-                                style="color: white;background-color:black; width:50%; height:50px;">change
-                                Background Stage
-                                images </button>
-
-
-                            <div style="display: none;" class="bckstg">
-                                <?php 
-$sql = "SELECT images from bckstageimage ";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-?>
-
-                                <?php
-foreach($results1 as $result1)
-{	?>
-
-                                <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
-                                    src="admin/pacakgeimages/<?php echo htmlentities($result1->images);?>"
-                                    class="img_item" alt="">
-                                <input type="checkbox" id="checkbox"
-                                    style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
-                                    name="techno[]" value="<?php echo htmlentities($result1->images);?>">
-
-
-                                <?php
-}}?>
-
-
-
-
-
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <hr style="border: 1px solid black;">
-                        <?php }?>
-
-                        <!-- entrance image -->
-
-
-                        <?php 
-$pid=intval($_GET['pkgid']);
-$sql = "SELECT EntranceImage from tbltourpackages where PackageId=$pid";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-?>
-
-
-                        <?php
-foreach($results1 as $result1)
-{
-    if($result1->EntranceImage == "" ){
-        echo "";
-    }else{
-    
-    ?>
-                        <div>
-
-                            <h1 id="entrance">Selected Entrance Image</h1>
-
-                            <img style="width: 300px; margin: 0px 20px 20px 20px; "
-                                src="admin/pacakgeimages/<?php echo htmlentities($result1->EntranceImage);?>"
-                                class="img_item" alt="">
-                            <input type="checkbox" id="checkbox" checked
-                                style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
-                                name="techno[]" value="<?php echo htmlentities($result1->EntranceImage);?>">
-
-
-                            <?php
-}}}
-if($result1->EntranceImage == "" ){
-    echo "";
-}else{
-?>
-
-
-                            <button id="hide4"
-                                style="color: white;background-color:black; width:50%; height:50px;">change
-                                Entrance
-                                images </button>
-
-
-                            <div style="display: none;" class="entrance">
-                                <?php 
-$sql = "SELECT images from entranceimage ";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-?>
-
-                                <?php
-foreach($results1 as $result1)
-{	?>
-
-                                <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
-                                    src="admin/pacakgeimages/<?php echo htmlentities($result1->images);?>"
-                                    class="img_item" alt="">
-                                <input type="checkbox" id="checkbox"
-                                    style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
-                                    name="techno[]" value="<?php echo htmlentities($result1->images);?>">
-
-
-                                <?php
-}}?>
-
-
-
-
-
-                            </div>
-                        </div>
-
-                        <br>
-                        <hr style="border: 1px solid black;">
-                        <?php } ?>
-
-                        <!-- chair part -->
-
-
-
-
-
-                        <?php 
-$pid=intval($_GET['pkgid']);
-$sql = "SELECT ChairImage from tbltourpackages where PackageId=$pid";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-?>
-
-
-                        <?php
-foreach($results1 as $result1)
-{
-    if($result1->ChairImage == "" ){
-        echo "";
-    }else{
-    	?>
-                        <div>
-
-                            <h1 id="chair">Selected Normal Chairs</h1>
-
-                            <img style="width: 300px; margin: 0px 20px 20px 20px; "
-                                src="admin/pacakgeimages/<?php echo htmlentities($result1->ChairImage );?>"
-                                class="img_item" alt="">
-                            <input type="checkbox" id="checkbox" checked
-                                style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
-                                name="techno[]" value="<?php echo htmlentities($result1->ChairImage);?>">
-
-
-                            <?php
-}}}
-
-
-if($result1->ChairImage == "" ){
-    echo "";
-}else{
-    ?>
-
-
-                            <button id="hide"
-                                style="color: white;background-color:black; width:50%; height:50px;">change
-                                Chair
-                                images </button>
-
-
-                            <div style="display: none;" class="chrimg">
-                                <?php 
-$sql = "SELECT images from chairimgs ";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-?>
-
-                                <?php
-foreach($results1 as $result1)
-{	?>
-
-                                <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
-                                    src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>"
-                                    class="img_item" alt="">
-                                <input type="checkbox" id="checkbox"
-                                    style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
-                                    name="techno[]" value="<?php echo htmlentities($result1->images);?>">
-
-
-                                <?php
-}}?>
-
-
-
-
-
-                            </div>
-                        </div>
-
-
-
-
-                        <hr style="border: 1px solid black;">
-
-                        <?php } ?>
-
-
-
-                        <?php 
-$pid=intval($_GET['pkgid']);
-$sql = "SELECT BarCounter from tbltourpackages where PackageId=$pid";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-?>
-
-
-                        <?php
-foreach($results1 as $result1)
-{
-    if($result1->BarCounter == "" ){
-        echo "";
-    }else{
-    	?>
-                        <div>
-
-                            <h1 id="chair">Selected Normal Chairs</h1>
-
-                            <img style="width: 300px; margin: 0px 20px 20px 20px; "
-                                src="admin/pacakgeimages/<?php echo htmlentities($result1->BarCounter );?>"
-                                class="img_item" alt="">
-                            <input type="checkbox" id="checkbox" checked
-                                style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -50px;"
-                                name="techno[]" value="<?php echo htmlentities($result1->BarCounter);?>">
-
-
-                            <?php
-}}}
-
-
-if($result1->BarCounter == "" ){
-    echo "";
-}else{
-    ?>
-
-
-                            <button id="hide5"
-                                style="color: white;background-color:black; width:50%; height:50px;">change
-                                Bar Counter
-                                images </button>
-
-
-                            <div style="display: none;" class="barcounter">
-                                <?php 
-$sql = "SELECT images from barcounter ";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results1=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-?>
-
-                                <?php
-foreach($results1 as $result1)
-{	?>
-
-                                <img style="width: 300px; height:160px; margin: 20px 20px 20px 20px; "
-                                    src="admin/pacakgeimages/<?php echo htmlentities($result1->images );?>"
-                                    class="img_item" alt="">
-                                <input type="checkbox" id="checkbox"
-                                    style="position:absolute; width: 30px; height: 30px; margin:20px 0px 0px -52px;"
-                                    name="techno[]" value="<?php echo htmlentities($result1->images);?>">
-
-
-                                <?php
-}}?>
-
-
-
-
-
-                            </div>
-                        </div>
-
-
-
-
-                        <hr style="border: 1px solid black;">
-
-                        <?php } ?>
-
-
-
-
-
-
-
-                        <ul>
-
-
-                            <?php if($_SESSION['login'])
-{?>
-                            <li class="spe" align="center">
-                                <button type="submit" name="submit2" class="btn-primary btn">Add to Cart</button>
-                            </li>
-                            <?php } else {?>
-                            <li class="sigi" align="center" style="margin-top: 1%">
-                                <a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn">
-                                    Book</a>
-                            </li>
-                            <?php } ?>
-
-
-                            <div class="clearfix"></div>
-                        </ul>
-
                     </div>
                 </div>
 
-            </form>
 
-            <?php
+
+
+                <div class="selectroom_top">
+                    <?php if($_SESSION['login'])
+{?>
+                    <center><button type="submit" name="submit2" class="btn-primary btn">Add to Cart</button></center>
+
+                    <?php } else {?>
+                    <center><a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn">
+                            Book</a></center>
+                    <?php } ?>
+                    <div class="clearfix"></div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <?php
      }} ?>
 
-
-
-
-        </div>
-    </div>
 
 
 

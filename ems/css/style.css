@@ -445,7 +445,7 @@ i.fa.fa-truck,i.fa.fa-user,i.fa.fa-ticket {
     color:#2f00ff;
 }
 .footer-btm {
-    background:#d30d31;
+    background:#000000;
     padding: 0.5em 0;
 	text-align:center;
 }
@@ -461,7 +461,7 @@ i.fa.fa-truck,i.fa.fa-user,i.fa.fa-ticket {
     color:#000000;
 }
 .copy-right {
-    background:#d30d31;
+    background:#000000;
     text-align: center;
     padding: 0.5em 0;
 }
@@ -1318,8 +1318,9 @@ ul.off-mo span {
 }
 /*-- selectroom --*/
 .selectroom {
+    background-color: #ffffff;
     /* background-color: rgb(8, 8, 8); */
-    background-image: url('../images/events3.jpg');
+    /* background-image: url('../images/events3.jpg'); */
     /* background-image: url('img_girl.jpg'); */
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -1327,7 +1328,7 @@ ul.off-mo span {
     padding: 5em 0 3em;
 }
 .selectroom_top {
-    background-color: #ffffff;
+    background-color: #dce3e2;
     color: rgb(7, 7, 7);
     border-radius: 20px;
     padding: 2em;
@@ -2286,7 +2287,7 @@ ul.set-1 {
     margin-left: 266px;
 }
 .navbar-default {
-    background-color: #d30d31 !important;
+    background-color: #000000 !important;
     border-color: #0ce4d9 !important;
 }
 .navbar-default2 {

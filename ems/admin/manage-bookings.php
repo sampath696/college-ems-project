@@ -104,6 +104,7 @@ if(isset($_REQUEST['did'])){
         type='text/css' />
     <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
     .errorWrap {
         padding: 10px;
@@ -182,9 +183,9 @@ foreach($results as $result)
                                     </td>
                                     <td><?php echo htmlentities($result->fdate);?></td>
                                     <td>
-                                        <a
-                                            href="display.php?bookid=<?php echo htmlentities($result->bookid);?>&pkgname=<?php echo htmlentities($result->pckname) ?> ">view
-                                            items</a>
+                                        <a href="display.php?bookid=<?php echo htmlentities($result->bookid);?>&pkgname=<?php echo htmlentities($result->pckname) ?>"
+                                            class="w3-button w3-orange w3-padding-large">view
+                                        </a>
                                         <!-- <?php echo htmlentities($result->comment);?> -->
                                     </td>
                                     <td><?php if($result->status==0)
@@ -220,8 +221,10 @@ echo "Canceled by User at " .$result->upddate;
 	?><td>Booking successful</td>
                                     <?php } else {?>
                                     <td><a href="manage-bookings.php?bkid=<?php echo htmlentities($result->bookid);?>"
-                                            onclick="return confirm('Do you really want to cancel booking')">Cancel</a>
-                                        / <a href="manage-bookings.php?bckid=<?php echo htmlentities($result->bookid);?>"
+                                            class="w3-button w3-red w3-padding-large"
+                                            onclick="return confirm('Do you really want to cancel booking')">Cancel</a><br><br>
+                                        <a href="manage-bookings.php?bckid=<?php echo htmlentities($result->bookid);?>"
+                                            class="w3-button w3-green w3-padding-large"
                                             onclick="return confirm('Do you really want to confirm booking')">Confirm</a>
                                     </td>
                                     <?php }?>

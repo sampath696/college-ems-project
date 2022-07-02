@@ -94,15 +94,21 @@ else{
                         <li class="w3-black w3-xlarge w3-padding-32" style="text-transform:capitalize;">
                             <?php
 if(substr($mk,0,3) == "cha"){
-    $rs = "Chair image";
+    $rs = "Chair";
 }else if(substr($mk,0,3) == "wel"){
-    $rs = "Welcome Sign image";
+    $rs = "Welcome Sign";
 }else if(substr($mk,0,3) == "bac"){
-    $rs = "BackgroundStage image";
+    $rs = "Background Stage";
 }else if(substr($mk,0,3) == "ent"){
-    $rs = "Entrance image";
+    $rs = "Welcome Gate image";
+}else if(substr($mk,0,3) == "bgc"){
+    $rs = "Bride-Groom Chair";
+}else if(substr($mk,0,3) == "bcs"){
+    $rs = "Bride-Groom Sofa";
+}else if(substr($mk,0,3) == "tab"){
+    $rs = "Table";
 }else if(substr($mk,0,3) == "bar"){
-    $rs = "BarCounter image";
+    $rs = "BarCounter";
 }else{
     $rs = "$mk";
 }

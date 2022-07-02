@@ -74,21 +74,20 @@ $msg="Profile Updated Successfully";
 
 <body>
     <!-- top-header -->
-    <div class="top-header">
-        <?php include('includes/header.php');?>
-        <!--- /banner-1 ---->
-        <!--- privacy ---->
-        <img style="display:inline;" src="images/profile.svg" alt="" align="right">
-        <div class="privacy" align="left">
-            <div class="container">
-                <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
-                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Edit Profile</h3>
-                <form name="chngpwd" method="post">
-                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
-                    </div><?php } 
+    <?php include('includes/header.php');?>
+    <!--- /banner-1 ---->
+    <!--- privacy ---->
+    <img style="display:inline;" src="images/profile.svg" alt="" align="right">
+    <div class="privacy" align="left">
+        <div class="container">
+            <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
+                style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Edit Profile</h3>
+            <form name="chngpwd" method="post">
+                <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
+                </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
 
-                    <?php 
+                <?php 
 $useremail=$_SESSION['login'];
 $sql = "SELECT * from tblusers where EmailId=:useremail";
 $query = $dbh -> prepare($sql);
@@ -101,54 +100,93 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {	?>
 
+                <p style="width: 350px;">
+
+                    <b>Name</b> <input type="text" name="name" value="<?php echo htmlentities($result->FullName);?>"
+                        class="form-control" id="name" required="">
+                </p>
+
+                <p style="width: 350px;">
+                    <b>Mobile Number</b>
+                    <input type="text" class="form-control" name="mobileno" maxlength="10"
+                        value="<?php echo htmlentities($result->MobileNumber);?>" id="mobileno" required="">
+                </p>
+
+                <p style="width: 350px;">
+                    <b>Email Id</b>
+                    <input type="email" class="form-control" name="email"
+                        value="<?php echo htmlentities($result->EmailId);?>" id="email" readonly>
+                </p>
+                <p style="width: 350px;">
+                    <b>Last Updation Date : </b>
+                    <?php echo htmlentities($result->UpdationDate);?>
+                </p>
+
+                <p style="width: 350px;">
+                    <b>Reg Date :</b>
+                    <?php echo htmlentities($result->RegDate);?>
+                </p>
+                <?php }} ?>
+
+                <p style="width: 350px;">
+                    <button type="submit" name="submit6" class="btn-primary btn">Updtae</button>
+                </p>
+            </form>
+
+
+        </div>
+    </div>
+
+
+    <img style="display:inline;" src="images/pass.svg" alt="" align="right">
+        <div class="privacy" align="left">
+            <div class="container">
+                <h3 class="wow fadeInDown animated animated" data-wow-delay=".5s"
+                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Change Password</h3>
+                <form name="chngpwd" method="post" onSubmit="return valid();">
+                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
+                    </div><?php } 
+				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                     <p style="width: 350px;">
 
-                        <b>Name</b> <input type="text" name="name" value="<?php echo htmlentities($result->FullName);?>"
-                            class="form-control" id="name" required="">
+                        <b>Current Password</b> <input type="password" name="password" class="form-control"
+                            id="exampleInputPassword1" placeholder="Current Password" required="">
                     </p>
 
                     <p style="width: 350px;">
-                        <b>Mobile Number</b>
-                        <input type="text" class="form-control" name="mobileno" maxlength="10"
-                            value="<?php echo htmlentities($result->MobileNumber);?>" id="mobileno" required="">
+                        <b>New Password</b>
+                        <input type="password" class="form-control" name="newpassword" id="newpassword"
+                            placeholder="New Password" required="">
                     </p>
 
                     <p style="width: 350px;">
-                        <b>Email Id</b>
-                        <input type="email" class="form-control" name="email"
-                            value="<?php echo htmlentities($result->EmailId);?>" id="email" readonly>
-                    </p>
-                    <p style="width: 350px;">
-                        <b>Last Updation Date : </b>
-                        <?php echo htmlentities($result->UpdationDate);?>
+                        <b>Confirm Password</b>
+                        <input type="password" class="form-control" name="confirmpassword" id="confirmpassword"
+                            placeholder="Confrim Password" required="">
                     </p>
 
                     <p style="width: 350px;">
-                        <b>Reg Date :</b>
-                        <?php echo htmlentities($result->RegDate);?>
-                    </p>
-                    <?php }} ?>
-
-                    <p style="width: 350px;">
-                        <button type="submit" name="submit6" class="btn-primary btn">Updtae</button>
+                        <button type="submit" name="submit5" class="btn-primary btn">Change</button>
                     </p>
                 </form>
 
 
             </div>
         </div>
-        <!--- /privacy ---->
-        <!--- footer-top ---->
-        <!--- /footer-top ---->
-        <?php include('includes/footer.php');?>
-        <!-- signup -->
-        <?php include('includes/signup.php');?>
-        <!-- //signu -->
-        <!-- signin -->
-        <?php include('includes/signin.php');?>
-        <!-- //signin -->
-        <!-- write us -->
-        <?php include('includes/write-us.php');?>
+
+
+    <!--- /privacy ---->
+    <!--- footer-top ---->
+    <!--- /footer-top ---->
+    <?php include('includes/footer.php');?>
+    <!-- signup -->
+    <?php include('includes/signup.php');?>
+    <!-- //signu -->
+    <!-- signin -->
+    <?php include('includes/signin.php');?>
+    <!-- //signin -->
+    <!-- write us -->
+    <?php include('includes/write-us.php');?>
 </body>
 
 </html>

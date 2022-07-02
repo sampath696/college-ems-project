@@ -17,14 +17,20 @@ $wimage=$_FILES["welcomesign"]["name"];
 $bimage=$_FILES["backgroundstage"]["name"];
 $eimage=$_FILES["entrancedesign"]["name"];
 $cimage=$_FILES["chairimage"]["name"];
+$bgchair=$_FILES["bgchair"]["name"];
+$bgsofa=$_FILES["bgsofa"]["name"];
+$tables=$_FILES["tables"]["name"];
 $barcounter=$_FILES["barcounter"]["name"];
 move_uploaded_file($_FILES["packageimage"]["tmp_name"],"pacakgeimages/".$_FILES["packageimage"]["name"]);
 move_uploaded_file($_FILES["welcomesign"]["tmp_name"],"pacakgeimages/".$_FILES["welcomesign"]["name"]);
 move_uploaded_file($_FILES["backgroundstage"]["tmp_name"],"pacakgeimages/".$_FILES["backgroundstage"]["name"]);
 move_uploaded_file($_FILES["entrancedesign"]["tmp_name"],"pacakgeimages/".$_FILES["entrancedesign"]["name"]);
 move_uploaded_file($_FILES["chairimage"]["tmp_name"],"pacakgeimages/".$_FILES["chairimage"]["name"]);
+move_uploaded_file($_FILES["bgchair"]["tmp_name"],"pacakgeimages/".$_FILES["bgchair"]["name"]);
+move_uploaded_file($_FILES["bgsofa"]["tmp_name"],"pacakgeimages/".$_FILES["bgsofa"]["name"]);
+move_uploaded_file($_FILES["tables"]["tmp_name"],"pacakgeimages/".$_FILES["tables"]["name"]);
 move_uploaded_file($_FILES["barcounter"]["tmp_name"],"pacakgeimages/".$_FILES["barcounter"]["name"]);
-$sql="update TblTourPackages set PackageImage=:pimage, WelcomeImage=:wimage, BackgroundStageImage=:bimage, EntranceImage=:eimage, ChairImage=:cimage, BarCounter=:barcounter where PackageId=:imgid";
+$sql="update TblTourPackages set PackageImage=:pimage, WelcomeImage=:wimage, BackgroundStageImage=:bimage, EntranceImage=:eimage, ChairImage=:cimage, bgchair=:bgchair, bgsofa=:bgsofa, tables=:tables, BarCounter=:barcounter where PackageId=:imgid";
 $query = $dbh->prepare($sql);
 
 $query->bindParam(':imgid',$imgid,PDO::PARAM_STR);
@@ -33,6 +39,9 @@ $query->bindParam(':wimage',$wimage,PDO::PARAM_STR);
 $query->bindParam(':bimage',$bimage,PDO::PARAM_STR);
 $query->bindParam(':eimage',$eimage,PDO::PARAM_STR);
 $query->bindParam(':cimage',$cimage,PDO::PARAM_STR);
+$query->bindParam(':bgchair',$bgchair,PDO::PARAM_STR);
+$query->bindParam(':bgsofa',$bgsofa,PDO::PARAM_STR);
+$query->bindParam(':tables',$tables,PDO::PARAM_STR);
 $query->bindParam(':barcounter',$barcounter,PDO::PARAM_STR);
 $query->execute();
 $msg="Package Created Successfully";
@@ -120,7 +129,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <form class="form-horizontal" name="package" method="post" enctype="multipart/form-data">
                                 <?php 
 $imgid=intval($_GET['imgid']);
-$sql = "SELECT PackageImage, WelcomeImage, BackgroundStageImage,EntranceImage, ChairImage, BarCounter from TblTourPackages where PackageId=:imgid";
+$sql = "SELECT PackageImage, WelcomeImage, BackgroundStageImage,EntranceImage, ChairImage, bgchair, bgsofa, tables, BarCounter from TblTourPackages where PackageId=:imgid";
 $query = $dbh -> prepare($sql);
 $query -> bindParam(':imgid', $imgid, PDO::PARAM_STR);
 $query->execute();
@@ -198,6 +207,48 @@ foreach($results as $result)
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="chairimage" id="chairimage" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label"> Bride-Groom Chair Image </label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->bgchair);?>"
+                                            width="200">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="bgchair" id="bgchair" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label"> Bride-Groom Sofa Image </label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->bgsofa);?>"
+                                            width="200">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="bgsofa" id="bgsofa" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label"> Tables Image </label>
+                                    <div class="col-sm-8">
+                                        <img src="pacakgeimages/<?php echo htmlentities($result->tables);?>"
+                                            width="200">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="tables" id="tables" >
                                     </div>
                                 </div>
                                 <div class="form-group">

@@ -105,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="tab-pane active" id="horizontal-form">
                             <form class="form-horizontal" name="package" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Package Image</label>
+                                    <label for="focusedinput" class="col-sm-2 control-label">chair Image</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="packageimage" id="packageimage" required>
                                     </div>

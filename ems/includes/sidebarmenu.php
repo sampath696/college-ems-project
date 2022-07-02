@@ -21,12 +21,7 @@
                     </li>
                     <li id="menu-academico-avaliacoes"><a href="entranceimages.php">insert Entrance images</a></li>
                     <li id="menu-academico-avaliacoes"><a href="chimgs.php">insert Chair images</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="bgchair.php">insert Bride-Groom Chair images</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="bgsofa.php">insert Bride-Groom Sofa images</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="tables.php">insert Tables images</a></li>
                     <li id="menu-academico-avaliacoes"><a href="barcounter.php">insert Bar Counter images</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="gallery.php">insert Gallery images</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="decor.php">insert Decoration Items images</a></li>
                 </ul>
             </li>
             <li id="menu-academico"><a href="manage-users.php"><i class="fa fa-users"
