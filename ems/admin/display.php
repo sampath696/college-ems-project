@@ -98,7 +98,7 @@ else{
             </div>
             <!--heder end here-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Home</a><i class="fa fa-angle-right"></i>View Selected
+                <li class="breadcrumb-item"><a href="dashboard.php">Home</a><i class="fa fa-angle-right"></i>View Selected
                     Item of customer
                 </li>
             </ol>
@@ -134,11 +134,13 @@ if(substr($mk,0,3) == "cha"){
 }else if(substr($mk,0,3) == "bgc"){
     $rs = "Bride-Groom Chair";
 }else if(substr($mk,0,3) == "bcs"){
-    $rs = "Bride-Groom Sofa";
+    $rs = "VIP Sofa";
 }else if(substr($mk,0,3) == "tab"){
     $rs = "Table";
 }else if(substr($mk,0,3) == "bar"){
     $rs = "BarCounter";
+}else if(substr($mk,0,3) == "dec"){
+    $rs = "Decorative Items";
 }else{
     $rs = "$mk";
 }

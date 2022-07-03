@@ -134,7 +134,7 @@ if(isset($_REQUEST['fid'])){
             </div>
             <!--heder end here-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Manage Issues
+                <li class="breadcrumb-item"><a href="dashboard.php">Home</a><i class="fa fa-angle-right"></i>Manage Issues
                 </li>
             </ol>
             <div class="agile-grids">

@@ -112,7 +112,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--heder end here-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Update Package
+                <li class="breadcrumb-item"><a href="dashboard.php">Home</a><i class="fa fa-angle-right"></i>Update
+                    Package
                     Image </li>
             </ol>
             <!--grid-->
@@ -150,11 +151,12 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="packageimage" id="packageimage" >
+                                        <input type="file" value="" name="packageimage" id="packageimage">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label"> Welcome Sign Image </label>
+                                    <label for="focusedinput" class="col-sm-2 control-label"> Welcome Sign Image
+                                    </label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->WelcomeImage);?>"
                                             width="200">
@@ -164,11 +166,12 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="welcomesign" id="welcomesign" >
+                                        <input type="file" name="welcomesign" id="welcomesign">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label"> Background Stage Image </label>
+                                    <label for="focusedinput" class="col-sm-2 control-label"> Background Stage Image
+                                    </label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->BackgroundStageImage);?>"
                                             width="200">
@@ -178,7 +181,7 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="backgroundstage" id="backgroundstage" >
+                                        <input type="file" name="backgroundstage" id="backgroundstage">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -192,7 +195,7 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="entrancedesign" id="entrancedesign" >
+                                        <input type="file" name="entrancedesign" id="entrancedesign">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -206,11 +209,12 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="chairimage" id="chairimage" >
+                                        <input type="file" name="chairimage" id="chairimage">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label"> Bride-Groom Chair Image </label>
+                                    <label for="focusedinput" class="col-sm-2 control-label"> Bride-Groom Chair Image
+                                    </label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->bgchair);?>"
                                             width="200">
@@ -220,11 +224,12 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="bgchair" id="bgchair" >
+                                        <input type="file" name="bgchair" id="bgchair">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label"> Bride-Groom Sofa Image </label>
+                                    <label for="focusedinput" class="col-sm-2 control-label"> Bride-Groom Sofa Image
+                                    </label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->bgsofa);?>"
                                             width="200">
@@ -234,7 +239,7 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="bgsofa" id="bgsofa" >
+                                        <input type="file" name="bgsofa" id="bgsofa">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -248,7 +253,7 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="tables" id="tables" >
+                                        <input type="file" name="tables" id="tables">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -262,7 +267,7 @@ foreach($results as $result)
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">New Image</label>
                                     <div class="col-sm-8">
-                                        <input type="file" name="barcounter" id="barcounter" >
+                                        <input type="file" name="barcounter" id="barcounter">
                                     </div>
                                 </div>
                                 <?php }} ?>

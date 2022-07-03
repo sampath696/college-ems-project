@@ -31,14 +31,14 @@ $rowcnt22 = $query->rowCount();
             <!-- <li class="sigi" style="margin:0px 0px 0px 30px"><a href="change-password.php"><i class="fa fa-key"
                         style="font-size:25px; color:white;" aria-hidden="true"></i> Change Password</a></li> -->
             <li class="sigi" style="margin:0px 0px 0px 30px"><a href="issuetickets.php"><i class="fa fa-question-circle"
-                        style="font-size:25px; color:white;"></i> View F.A.Q</a></li>
+                        style="font-size:25px; color:white;"></i> F.A.Q</a></li>
             <li class="sigi" style="margin:0px 20px 0px 30px"><a href="cart.php"><i class="fa fa-shopping-cart"
-                        style="font-size:25px; color:white;"></i> <strong><?php echo $rowcnt ?></strong></a></li>
+                        style="font-size:25px; color:white;"></i> <strong>(<?php echo $rowcnt ?>)</strong></a></li>
             <li class="sigi"><a href="tour-history.php"><i class="fa fa-calendar"
-                        style="font-size:25px; color:white;"></i> My Bookings
-                    <strong><?php echo $rowcnt22 ?></strong></a></li>
-            <li class="sigi" style="margin:0px 20px 0px 30px"><a href="logout.php">
-                    <i class="fa fa-sign-out" style="font-size:25px; color:white;"></i>Logout
+                        style="font-size:25px; color:white;"></i> Bookings
+                    <strong>(<?php echo $rowcnt22 ?>)</strong></a></li>
+            <li class="sigi" style="margin:0px 20px 0px 25px"><a href="logout.php">
+                    <i class="fa fa-sign-out" style="font-size:25px; color:white;"></i> Logout
                 </a></li>
         </ul>
         <div class="clearfix"></div>
@@ -63,7 +63,7 @@ $rowcnt22 = $query->rowCount();
 <!--- /top-header ---->
 <!--- header ---->
 <div class="header">
-    <div class="" style="margin-left:50px;">
+    <div class="" style="margin-left:60px;">
 
         <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
             <!-- <i class="fa fa-home" style="font-size:30px; display:flex;"> -->
@@ -72,7 +72,7 @@ $rowcnt22 = $query->rowCount();
 
         </div>
 
-        <div class="lock fadeInDown animated" data-wow-delay=".5s">
+        <div class="lock fadeInDown animated" style="margin-right:30px;" data-wow-delay=".5s">
             <li><i class="fa fa-lock"></i></li>
             <li>
                 <div class="securetxt">SAFE &amp; SECURE </div>
@@ -85,7 +85,7 @@ $rowcnt22 = $query->rowCount();
 <!--- /header ---->
 <!--- footer-btm ---->
 <div class="footer-btm wow fadeInLeft animated" data-wow-delay=".5s">
-    <div class="" style="margin-left:50px;">
+    <div class="" style="margin-left:40px;">
         <div class="navigation">
             <nav class="navbar navbar-default">
                 <!-- Brand and toggle get grouped for better mobile display -->

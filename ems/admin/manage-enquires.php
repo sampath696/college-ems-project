@@ -121,7 +121,7 @@ if(isset($_REQUEST['did'])){
             </div>
             <!--heder end here-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Manage
+                <li class="breadcrumb-item"><a href="dashboard.php">Home</a><i class="fa fa-angle-right"></i>Manage
                     Enquiries</li>
             </ol>
             <div class="agile-grids">
@@ -135,7 +135,7 @@ if(isset($_REQUEST['did'])){
                         <table id="table">
                             <thead>
                                 <tr>
-                                    <th>Ticket id</th>
+                                    <!-- <th>enquiry id</th> -->
                                     <th>Name</th>
                                     <th>Mobile No./ Email</th>
 
@@ -157,7 +157,7 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {				?>
                                 <tr>
-                                    <td width="120">#TCKT-<?php echo htmlentities($result->id);?></td>
+                                    <!-- <td width="120">#TCKT-<?php echo htmlentities($result->id);?></td> -->
                                     <td width="50"><?php echo htmlentities($result->FullName);?></td>
                                     <td width="50"><?php echo htmlentities($result->MobileNumber);?> /<br />
                                         <?php echo $result->EmailId;?></td>

@@ -104,11 +104,13 @@ if(substr($mk,0,3) == "cha"){
 }else if(substr($mk,0,3) == "bgc"){
     $rs = "Bride-Groom Chair";
 }else if(substr($mk,0,3) == "bcs"){
-    $rs = "Bride-Groom Sofa";
+    $rs = "VIP Sofa";
 }else if(substr($mk,0,3) == "tab"){
     $rs = "Table";
 }else if(substr($mk,0,3) == "bar"){
     $rs = "BarCounter";
+}else if(substr($mk,0,3) == "dec"){
+    $rs = "Decorative Items";
 }else{
     $rs = "$mk";
 }

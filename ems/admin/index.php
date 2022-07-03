@@ -71,9 +71,9 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 			</div>
 			<div class="clearfix"></div>
 		</form>
-				<div class="back">
+				<!-- <div class="back">
 					<a href="../index.php">Back to home</a>
-				</div>
+				</div> -->
 				
 	</div>
 	</div>

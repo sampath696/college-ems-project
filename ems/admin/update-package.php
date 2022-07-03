@@ -97,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--heder end here-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Update Tour
+                <li class="breadcrumb-item"><a href="dashboard.php">Home</a><i class="fa fa-angle-right"></i>Update Tour
                     Package </li>
             </ol>
             <!--grid-->
@@ -134,14 +134,14 @@ foreach($results as $result)
                                             value="<?php echo htmlentities($result->PackageName);?>" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">Package Type</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control1" name="packagetype" id="packagetype"
                                             placeholder=" Package Type eg- Family Package / Couple Package"
                                             value="<?php echo htmlentities($result->PackageType);?>" required>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">Package Location</label>
@@ -153,16 +153,15 @@ foreach($results as $result)
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Package Price in
-                                        USD</label>
+                                    <label for="focusedinput" class="col-sm-2 control-label">Package Price</label>
                                     <div class="col-sm-8">
-                                        <input type="text" maxlength="4" class="form-control1" name="packageprice"
-                                            id="packageprice" placeholder=" Package Price is Rs"
+                                        <input type="text" maxlength="5" class="form-control1" name="packageprice"
+                                            id="packageprice" placeholder=" Package Price"
                                             value="<?php echo htmlentities($result->PackagePrice);?>" required>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">Package Features</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control1" name="packagefeatures"
@@ -170,7 +169,7 @@ foreach($results as $result)
                                             placeholder="Package Features Eg-free Pickup-drop facility"
                                             value="<?php echo htmlentities($result->PackageFetures);?>" required>
                                     </div>
-                                </div>
+                                </div> -->
 
 
                                 <div class="form-group">
@@ -181,6 +180,7 @@ foreach($results as $result)
                                             required><?php echo htmlentities($result->PackageDetails);?></textarea>
                                     </div>
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="focusedinput" class="col-sm-2 control-label">Package Image</label>
                                     <div class="col-sm-8">

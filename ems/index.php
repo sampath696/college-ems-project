@@ -44,9 +44,9 @@ include('includes/config.php');
                 <div class="w3-display-middle w3-margin-top w3-center">
                     <h1 class="w3-xxlarge w3-text-white" style="margin-top:-250px;">
                         <span class="w3-padding w3-black w3-opacity-min"><b>SWAGATH</b></span>
-                        <!-- <span class="w3-hide-small w3-text-light-grey"><b>SWAGATH</b></span>
-                    <span class="w3-padding w3-black w3-opacity-min"><b>Events</b></span> -->
-                        <span class="w3-hide-small w3-text-light-grey"><b>Events</b></span>
+                        <!-- <span class="w3-hide-small w3-text-light-grey"><b>SWAGATH</b></span> -->
+                    <span class="w3-padding w3-black w3-opacity-min"><b>EVENTS</b></span>
+                        <!-- <span class="w3-hide-small w3-text-light-grey"><b>Events</b></span> -->
                     </h1>
                 </div>
             </header>
@@ -77,8 +77,8 @@ foreach($results as $result)
                         <img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>" height="200"
                             width="350" alt="img">
 
-                        <li class="w3-padding-16"><?php echo htmlentities($result->PackageType);?></li>
-                        <li class="w3-padding-16"><?php echo htmlentities($result->PackageFetures);?></li>
+                        <!-- <li class="w3-padding-16"><?php echo htmlentities($result->PackageType);?></li> -->
+                        <li class="w3-padding-16"><?php echo htmlentities($result->PackageDetails);?></li>
                         <h2 class="w3-wide">₹ <?php echo htmlentities($result->PackagePrice);?></h2>
                         <span class="w3-opacity">Booking Amount</span>
                         </li>
@@ -116,7 +116,7 @@ foreach($results as $result)
                 available. It is at Omkareshwar Temple Road,Chickpet, Near Omkareshwara Temple, which makes it easy for
                 first-time visitors in locating this establishment. It is known to provide top service in the following
                 categories: Wedding Decorators, Decorators, Mandap Decorators, Birthday Party Decorators, Flower
-                Decorators, Interior Decorators, Balloon Decorators, Wedding Planners.</p>
+                Decorators, Interior Decorators, Balloon Decorators, Wedding Planners etc.</p>
         </div><br>
         <hr style="border: 1px solid black;">
         <br><br><br><br>
@@ -127,7 +127,7 @@ foreach($results as $result)
             <div class="w3-col m4 w3-margin-bottom">
                 <div class="w3-light-grey">
                     <div class="w3-container">
-                        <h3>Prerith D'Souza</h3>
+                        <h3>Prerith D'souza</h3>
                         <p class="w3-opacity"></p>
                         <p>We recieved a lot of compliments from our guests about the decor. Extremely attentive, We
                             needed few last minute changes and it always seemed that lokesh was one step ahead of us,

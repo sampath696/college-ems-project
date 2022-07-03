@@ -80,6 +80,7 @@ $error="Something went wrong. Please try again";
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="css/font-awesome.css" rel="stylesheet">
     <!-- Custom Theme files -->
     <script src="js/jquery-1.12.0.min.js"></script>
@@ -253,9 +254,9 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {	
         ?>
-            <h1>
+            <!-- <h1>
                 <center>EMS-Package Details</center>
-            </h1><br>
+            </h1><br> -->
 
             <!-- <div class="sidenav">
                 <a href="#date">select date</a><br>
@@ -298,6 +299,12 @@ foreach($results as $result)
                     <p style="padding-top: 1%"><?php echo htmlentities($result->PackageDetails);?> </p> -->
                     <div class="clearfix"></div>
                 </div>
+
+
+
+
+
+
 
                 <div class="selectroom_top">
                     <h2 id="decr">Select Images</h2>
@@ -669,7 +676,7 @@ foreach($results1 as $result1)
     	?>
                     <div>
 
-                        <h1 id="chair">Bride-Groom Sofa</h1>
+                        <h1 id="chair">VIP Sofa</h1>
 
                         <img style="width: 300px; margin: 0px 20px 20px 20px; "
                             src="admin/pacakgeimages/<?php echo htmlentities($result1->bgsofa );?>" class="img_item"
@@ -1073,7 +1080,7 @@ foreach($results1 as $result1)
                         </div>
                         <div class="column">
                             <h3>Carpets</h3>
-                            <img src="admin/pacakgeimages/cater.jpg" alt="Mountains" style="width:100%">
+                            <img src="admin/pacakgeimages/carpet.jpg" alt="Mountains" style="width:100%">
                             <input type="checkbox" id="checkbox"
                                 style="position:absolute; width: 30px; height:30px; margin:0px 0px 0px -30px;"
                                 name="techno2[]" value="carpets required">

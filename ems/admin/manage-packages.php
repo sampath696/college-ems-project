@@ -74,7 +74,7 @@ else{
 				</div>
 <!--heder end here-->
 <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Manage Packages</li>
+                <li class="breadcrumb-item"><a href="dashboard.php">Home</a><i class="fa fa-angle-right"></i>Manage Packages</li>
             </ol>
 <div class="agile-grids">	
 				<!-- tables -->
@@ -87,7 +87,7 @@ else{
 						  <tr>
 						  <th>#</th>
 							<th >Name</th>
-							<th>Type</th>
+							<!-- <th>Type</th> -->
 							<th>Location</th>
 							<th>Price</th>
 							<th>Creation Date</th>
@@ -108,7 +108,7 @@ foreach($results as $result)
 						  <tr>
 							<td><?php echo htmlentities($cnt);?></td>
 							<td><?php echo htmlentities($result->PackageName);?></td>
-							<td><?php echo htmlentities($result->PackageType);?></td>
+							<!-- <td><?php echo htmlentities($result->PackageType);?></td> -->
 							<td><?php echo htmlentities($result->PackageLocation);?></td>
 							<td>Rs.<?php echo htmlentities($result->PackagePrice);?></td>
 							<td><?php echo htmlentities($result->Creationdate);?></td>
