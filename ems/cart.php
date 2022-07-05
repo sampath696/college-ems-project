@@ -149,6 +149,7 @@ $query->execute();
                             <th>Booking Id</th>
                             <th>Package Name</th>
                             <th>Event Date</th>
+                            <th>Package Price</th>
                             <th>View your selection</th>
                             <th>Action</th>
                         </tr>
@@ -156,7 +157,7 @@ $query->execute();
                     <?php 
 
 $uemail=$_SESSION['login'];
-$sql = "SELECT tblbooking.BookingId as bookid,tblbooking.PackageId as pkgid,tbltourpackages.PackageName as packagename,tblbooking.FromDate as fromdate,tblbooking.ToDate as todate,tblbooking.Comment as comment,tblbooking.Comment2 as comment2,tblbooking.status as status,tblbooking.RegDate as regdate,tblbooking.CancelledBy as cancelby,tblbooking.UpdationDate as upddate from tblbooking join tbltourpackages on tbltourpackages.PackageId=tblbooking.PackageId where UserEmail=:uemail ORDER BY BookingId DESC";
+$sql = "SELECT tblbooking.BookingId as bookid,tblbooking.PackageId as pkgid,tbltourpackages.PackageName as packagename,tbltourpackages.PackagePrice as price,tblbooking.FromDate as fromdate,tblbooking.ToDate as todate,tblbooking.Comment as comment,tblbooking.Comment2 as comment2,tblbooking.status as status,tblbooking.RegDate as regdate,tblbooking.CancelledBy as cancelby,tblbooking.UpdationDate as upddate from tblbooking join tbltourpackages on tbltourpackages.PackageId=tblbooking.PackageId where UserEmail=:uemail ORDER BY BookingId DESC";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':uemail', $uemail, PDO::PARAM_STR);
 $query->execute();
@@ -174,6 +175,7 @@ foreach($results as $result)
                                     href="package-details.php?pkgid=<?php echo htmlentities($result->pkgid);?>"><?php echo htmlentities($result->packagename);?></a>
                             </td>
                             <td><?php echo htmlentities($result->fromdate);?></td>
+                            <td><?php echo htmlentities($result->price);?></td>
                             <!-- <td><?php echo htmlentities($result->todate);?></td> -->
                             <td align="center">
                                 <!-- <?php echo htmlentities($result->comment);?> -->

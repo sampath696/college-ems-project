@@ -238,7 +238,7 @@ foreach($results as $result)
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Bride-Groom Sofa
+                                    <label for="focusedinput" class="col-sm-2 control-label">VIP Sofa
                                         Image</label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->bgsofa);?>"

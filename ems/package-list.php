@@ -58,7 +58,7 @@ include('includes/config.php');
         <h1>
             <center>Packages</center>
         </h1><br>
-        <?php $sql = "SELECT * from tbltourpackages";
+        <?php $sql = "SELECT * from tbltourpackages ORDER BY PackageId DESC";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);

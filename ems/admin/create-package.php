@@ -24,6 +24,9 @@ $bgchairs=$_FILES["bgchairs"]["name"];
 $bgsofa=$_FILES["bgsofa"]["name"];
 $tables=$_FILES["tables"]["name"];
 $barcounter=$_FILES["barcounter"]["name"];
+if(substr($wimage,0,3) != "wel" && substr($bimage,0,3) != "bac" && substr($eimage,0,3) != "ent" && substr($cimage,0,3) != "cha" && substr($bgchairs,0,3) != "bgc" && substr($bgsofa,0,3) != "bcs" && substr($tables,0,3) != "tab" && substr($barcounter,0,3) != "bar"){
+    $error="please check selected file name are in correct format";
+}else{
 move_uploaded_file($_FILES["packageimage"]["tmp_name"],"pacakgeimages/".$_FILES["packageimage"]["name"]);
 move_uploaded_file($_FILES["welcomesign"]["tmp_name"],"pacakgeimages/".$_FILES["welcomesign"]["name"]);
 move_uploaded_file($_FILES["backgroundstage"]["tmp_name"],"pacakgeimages/".$_FILES["backgroundstage"]["name"]);
@@ -60,7 +63,7 @@ else
 {
 $error="Something went wrong. Please try again";
 }
-
+}
 }
 
 	?>
@@ -125,7 +128,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--heder end here-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="dashboard.php">Home</a><i class="fa fa-angle-right"></i>Create Package
+                <li class="breadcrumb-item"><a href="dashboard.php">Home</a><i class="fa fa-angle-right"></i>Create
+                    Package
                 </li>
             </ol>
             <!--grid-->
@@ -194,56 +198,89 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <input type="file" name="packageimage" id="packageimage">
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">welcome sign</label>
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>wel</b>' )
+                                    </p>
+                                    <label for="focusedinput" style="font-size:20px; font-weight:bold;"
+                                        class="col-sm-2 control-label">welcome sign :</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="welcomesign" id="welcomesign">
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Background Stage
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>bac</b>' )
+                                    </p>
+                                    <label for="focusedinput" style="font-size:20px; font-weight:bold;"
+                                        class="col-sm-2 control-label">Background Stage :
                                     </label>
                                     <div class="col-sm-8">
                                         <input type="file" name="backgroundstage" id="backgroundstage">
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Welcome gate
-                                        </label>
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>ent</b>' )
+                                    </p>
+                                    <label for="focusedinput" style="font-size:20px; font-weight:bold;"
+                                        class="col-sm-2 control-label">Welcome gate :
+                                    </label>
                                     <div class="col-sm-8">
                                         <input type="file" name="entrancedesign" id="entrancedesign">
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Normal Chair   </label>
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>cha</b>' )
+                                    </p>
+                                    <label for="focusedinput" style="font-size:20px; font-weight:bold;"
+                                        class="col-sm-2 control-label">Normal Chair :</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="chairimage" id="chairimage">
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Bride-Groom Chair</label>
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>bgc</b>' )
+                                    </p>
+                                    <label for="focusedinput" style="font-size:20px; font-weight:bold;"
+                                        class="col-sm-2 control-label">Bride-Groom Chair :</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="bgchairs" id="bgchairs">
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Wedding Sofa</label>
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>bcs</b>' )
+                                    </p>
+                                    <label for="focusedinput" style="font-size:20px; font-weight:bold;"
+                                        class="col-sm-2 control-label">Wedding VIP Sofa :</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="bgsofa" id="bgsofa">
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Tables</label>
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>tab</b>' )
+                                    </p>
+                                    <label for="focusedinput" style="font-size:20px; font-weight:bold;"
+                                        class="col-sm-2 control-label">Tables :</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="tables" id="tables">
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Bar Counter</label>
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>bar</b>' )
+                                    </p>
+                                    <label for="focusedinput" style="font-size:20px; font-weight:bold;"
+                                        class="col-sm-2 control-label">Bar Counter :</label>
                                     <div class="col-sm-8">
                                         <input type="file" name="barcounter" id="barcounter">
                                     </div>
                                 </div>
+                                <hr>
 
                                 <div class="row">
                                     <div class="col-sm-8 col-sm-offset-2">

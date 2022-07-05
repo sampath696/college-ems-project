@@ -238,8 +238,8 @@ $error="Something went wrong. Please try again";
     <div class="selectroom">
         <div class="container">
             <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
-				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> <a
-                    href="cart.php">go to cart</a> </div><?php }?>
+				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> <a href="cart.php"
+                    class="w3-button w3-blue w3-padding-large">go to cart</a> </div><?php }?>
 
             <?php 
 $pid=intval($_GET['pkgid']);
@@ -276,8 +276,9 @@ foreach($results as $result)
                         <h2><?php echo htmlentities($result->PackageName);?></h2><br>
                         <!-- <p class="dow">#PKG-<?php echo htmlentities($result->PackageId);?></p> -->
                         <!-- <p><b>Package Type :</b> <?php echo htmlentities($result->PackageType);?></p><br> -->
-                        <p><b>Package Location :</b> <?php echo htmlentities($result->PackageLocation);?></p><br>
-                        <p><b>Details :</b> <?php echo htmlentities($result->PackageDetails);?></p>
+                        <p><b>Location :</b> <?php echo htmlentities($result->PackageLocation);?></p><br>
+                        <p><b>Details :</b> <?php echo htmlentities($result->PackageDetails);?></p><br>
+                        <p><b>Package Amount :</b> <?php echo htmlentities($result->PackagePrice);?></p>
                         <div class="ban-bottom">
                             <div class="bnr-right">
                                 Select Your Event Date: <input type="date" id="date-picker" name="fromdate" required>

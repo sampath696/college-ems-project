@@ -81,13 +81,13 @@ $error="Something went wrong. Please try again";
     <!-- top-header -->
     <div class="top-header">
         <?php include('includes/header.php');?>
-        <div class="banner-1 ">
+        <!-- <div class="banner-1 ">
             <div class="container">
                 <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
                     style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">ems-Tourism Management
                     System</h1>
             </div>
-        </div>
+        </div> -->
         <!--- /banner-1 ---->
         <!--- privacy ---->
         <div class="privacy">

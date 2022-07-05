@@ -12,7 +12,6 @@ if(isset($_POST['submit']))
 {
 
 $pimage=$_FILES["packageimage"]["name"];
-$pimage=$_FILES["packageimage"]["name"];
 $wimage=$_FILES["welcomesign"]["name"];
 $bimage=$_FILES["backgroundstage"]["name"];
 $eimage=$_FILES["entrancedesign"]["name"];
@@ -21,6 +20,9 @@ $bgchair=$_FILES["bgchair"]["name"];
 $bgsofa=$_FILES["bgsofa"]["name"];
 $tables=$_FILES["tables"]["name"];
 $barcounter=$_FILES["barcounter"]["name"];
+if(substr($wimage,0,3) != "wel" && substr($bimage,0,3) != "bac" && substr($eimage,0,3) != "ent" && substr($cimage,0,3) != "cha" && substr($bgchairs,0,3) != "bgc" && substr($bgsofa,0,3) != "bcs" && substr($tables,0,3) != "tab" && substr($barcounter,0,3) != "bar"){
+    $error="please check selected file name are in correct format";
+}else{
 move_uploaded_file($_FILES["packageimage"]["tmp_name"],"pacakgeimages/".$_FILES["packageimage"]["name"]);
 move_uploaded_file($_FILES["welcomesign"]["tmp_name"],"pacakgeimages/".$_FILES["welcomesign"]["name"]);
 move_uploaded_file($_FILES["backgroundstage"]["tmp_name"],"pacakgeimages/".$_FILES["backgroundstage"]["name"]);
@@ -30,6 +32,8 @@ move_uploaded_file($_FILES["bgchair"]["tmp_name"],"pacakgeimages/".$_FILES["bgch
 move_uploaded_file($_FILES["bgsofa"]["tmp_name"],"pacakgeimages/".$_FILES["bgsofa"]["name"]);
 move_uploaded_file($_FILES["tables"]["tmp_name"],"pacakgeimages/".$_FILES["tables"]["name"]);
 move_uploaded_file($_FILES["barcounter"]["tmp_name"],"pacakgeimages/".$_FILES["barcounter"]["name"]);
+
+
 $sql="update TblTourPackages set PackageImage=:pimage, WelcomeImage=:wimage, BackgroundStageImage=:bimage, EntranceImage=:eimage, ChairImage=:cimage, bgchair=:bgchair, bgsofa=:bgsofa, tables=:tables, BarCounter=:barcounter where PackageId=:imgid";
 $query = $dbh->prepare($sql);
 
@@ -45,10 +49,11 @@ $query->bindParam(':tables',$tables,PDO::PARAM_STR);
 $query->bindParam(':barcounter',$barcounter,PDO::PARAM_STR);
 $query->execute();
 $msg="Package Created Successfully";
-
-
+}
 
 }
+
+
 
 	?>
 <!DOCTYPE HTML>
@@ -154,7 +159,10 @@ foreach($results as $result)
                                         <input type="file" value="" name="packageimage" id="packageimage">
                                     </div>
                                 </div>
+                                <hr style="border: 1px solid black;">
                                 <div class="form-group">
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>wel</b>' )
+                                    </p>
                                     <label for="focusedinput" class="col-sm-2 control-label"> Welcome Sign Image
                                     </label>
                                     <div class="col-sm-8">
@@ -169,7 +177,10 @@ foreach($results as $result)
                                         <input type="file" name="welcomesign" id="welcomesign">
                                     </div>
                                 </div>
+                                <hr style="border: 1px solid black;">
                                 <div class="form-group">
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>bac</b>' )
+                                    </p>
                                     <label for="focusedinput" class="col-sm-2 control-label"> Background Stage Image
                                     </label>
                                     <div class="col-sm-8">
@@ -184,7 +195,10 @@ foreach($results as $result)
                                         <input type="file" name="backgroundstage" id="backgroundstage">
                                     </div>
                                 </div>
+                                <hr style="border: 1px solid black;">
                                 <div class="form-group">
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>ent</b>' )
+                                    </p>
                                     <label for="focusedinput" class="col-sm-2 control-label"> Entrance Image </label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->EntranceImage);?>"
@@ -198,7 +212,10 @@ foreach($results as $result)
                                         <input type="file" name="entrancedesign" id="entrancedesign">
                                     </div>
                                 </div>
+                                <hr style="border: 1px solid black;">
                                 <div class="form-group">
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>cha</b>' )
+                                    </p>
                                     <label for="focusedinput" class="col-sm-2 control-label"> Chair Image </label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->ChairImage);?>"
@@ -212,7 +229,10 @@ foreach($results as $result)
                                         <input type="file" name="chairimage" id="chairimage">
                                     </div>
                                 </div>
+                                <hr style="border: 1px solid black;">
                                 <div class="form-group">
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>bgc</b>' )
+                                    </p>
                                     <label for="focusedinput" class="col-sm-2 control-label"> Bride-Groom Chair Image
                                     </label>
                                     <div class="col-sm-8">
@@ -227,7 +247,10 @@ foreach($results as $result)
                                         <input type="file" name="bgchair" id="bgchair">
                                     </div>
                                 </div>
+                                <hr style="border: 1px solid black;">
                                 <div class="form-group">
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>bcs</b>' )
+                                    </p>
                                     <label for="focusedinput" class="col-sm-2 control-label"> Bride-Groom Sofa Image
                                     </label>
                                     <div class="col-sm-8">
@@ -242,7 +265,10 @@ foreach($results as $result)
                                         <input type="file" name="bgsofa" id="bgsofa">
                                     </div>
                                 </div>
+                                <hr style="border: 1px solid black;">
                                 <div class="form-group">
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>tab</b>' )
+                                    </p>
                                     <label for="focusedinput" class="col-sm-2 control-label"> Tables Image </label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->tables);?>"
@@ -256,7 +282,10 @@ foreach($results as $result)
                                         <input type="file" name="tables" id="tables">
                                     </div>
                                 </div>
+                                <hr style="border: 1px solid black;">
                                 <div class="form-group">
+                                    <p style="margin-left:40px;">(first three words of this image must be '<b>bar</b>' )
+                                    </p>
                                     <label for="focusedinput" class="col-sm-2 control-label"> BarCounter Image </label>
                                     <div class="col-sm-8">
                                         <img src="pacakgeimages/<?php echo htmlentities($result->BarCounter);?>"
@@ -270,6 +299,7 @@ foreach($results as $result)
                                         <input type="file" name="barcounter" id="barcounter">
                                     </div>
                                 </div>
+                                <hr style="border: 1px solid black;">
                                 <?php }} ?>
 
                                 <div class="row">

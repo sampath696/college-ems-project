@@ -113,7 +113,7 @@ $rowcnt22 = $query->rowCount();
                             <li><a href="#" data-toggle="modal" data-target="#myModal3"><i class="fa fa-question-circle"
                                         style="font-size:18px; color:white;"></i> F.A.Q</a></li>
                             <?php } else { ?>
-                            <li><a href="enquiry.php"> Enquiry </a> </li>
+                            <!-- <li><a href="enquiry.php"> Enquiry </a> </li> -->
                             <?php } ?>
                             <li><a href="aboutus.php"><i class="fa fa-info-circle"
                                         style="font-size:18px; color:white;"></i> About Us</a></li>

@@ -96,20 +96,21 @@ $cnt1=$query1->rowCount();
                     </div>
 
 
+
                     <div class="col-md-3 four-grid">
-                        <div class="four-w3ls">
+                        <div class="four-w3ls" style="background-color:#3541e9">
                             <div class="icon">
                                 <i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>
                             </div>
                             <div class="four-text">
-                                <h3>External Enquiries</h3>
-                                <?php $sql2 = "SELECT id from tblenquiry";
-$query2= $dbh -> prepare($sql2);
-$query2->execute();
-$results2=$query2->fetchAll(PDO::FETCH_OBJ);
-$cnt2=$query2->rowCount();
+                                <h3>FAQ</h3>
+                                <?php $sql5 = "SELECT id from tblissues";
+$query5= $dbh -> prepare($sql5);
+$query5->execute();
+$results5=$query5->fetchAll(PDO::FETCH_OBJ);
+$cnt5=$query5->rowCount();
 					?>
-                                <h4><?php echo htmlentities($cnt2);?></h4>
+                                <h4><?php echo htmlentities($cnt5);?></h4>
 
                             </div>
 
@@ -140,25 +141,6 @@ $cnt3=$query3->rowCount();
                 </div>
 
                 <div class="four-grids">
-                    <div class="col-md-3 four-grid">
-                        <div class="four-w3ls" style="background-color:#3541e9" >
-                            <div class="icon">
-                                <i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>
-                            </div>
-                            <div class="four-text">
-                                <h3>FAQ</h3>
-                                <?php $sql5 = "SELECT id from tblissues";
-$query5= $dbh -> prepare($sql5);
-$query5->execute();
-$results5=$query5->fetchAll(PDO::FETCH_OBJ);
-$cnt5=$query5->rowCount();
-					?>
-                                <h4><?php echo htmlentities($cnt5);?></h4>
-
-                            </div>
-
-                        </div>
-                    </div>
 
                     <div class="col-md-3 four-grid">
                         <div class="four-w3ls" style="background-color:#8ca145">
